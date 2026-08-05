@@ -1,1 +1,302 @@
-body{margin:0;font-family:Arial;background:#0b1220;color:#fff}header{padding:80px 20px;text-align:center;background:linear-gradient(135deg,#0f172a,#1d4ed8)}img{width:140px}section{max-width:1000px;margin:auto;padding:50px 20px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}.card{background:#172033;padding:20px;border-radius:12px}a.btn{background:#2563eb;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none}footer{padding:30px;text-align:center;background:#111827}
+/* ===========================
+   BLUELI
+   Modern Landing Page
+=========================== */
+
+:root{
+    --primary:#2f6bff;
+    --primary-light:#5a8cff;
+    --secondary:#00c2ff;
+    --background:#08111f;
+    --background2:#101b2f;
+    --card:#17263d;
+    --text:#ffffff;
+    --text-light:#b9c5d7;
+    --border:rgba(255,255,255,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,Arial,sans-serif;
+    background:linear-gradient(180deg,#08111f,#0d1727);
+    color:var(--text);
+    line-height:1.7;
+}
+
+/* Hintergrund */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,#2f6bff33 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#00c2ff22 0%,transparent 30%);
+
+    z-index:-1;
+
+}
+
+/* Header */
+
+header{
+
+    text-align:center;
+
+    padding:90px 20px;
+
+    background:
+    linear-gradient(145deg,#0f172a,#1a3ea5);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+header img{
+
+    width:150px;
+
+    margin-bottom:25px;
+
+    filter:drop-shadow(0 0 25px rgba(0,153,255,.45));
+
+}
+
+header h1{
+
+    font-size:60px;
+
+    margin-bottom:15px;
+
+    letter-spacing:2px;
+
+}
+
+header p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:var(--text-light);
+
+    font-size:20px;
+
+}
+
+/* Button */
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:35px;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#2f6bff,#00b4ff);
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+    box-shadow:0 10px 30px rgba(0,120,255,.3);
+
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 20px 45px rgba(0,120,255,.45);
+
+}
+
+/* Sections */
+
+section{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:90px 25px;
+
+}
+
+section h2{
+
+    text-align:center;
+
+    font-size:40px;
+
+    margin-bottom:25px;
+
+}
+
+section p{
+
+    color:var(--text-light);
+
+    text-align:center;
+
+    max-width:850px;
+
+    margin:auto;
+
+}
+
+/* Cards */
+
+.cards{
+
+    margin-top:60px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+.card{
+
+    background:rgba(23,38,61,.75);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:35px;
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#2f6bff;
+
+    box-shadow:0 20px 45px rgba(0,120,255,.2);
+
+}
+
+.card h3{
+
+    margin-bottom:15px;
+
+    font-size:24px;
+
+}
+
+.card p{
+
+    text-align:left;
+
+}
+
+/* Kontakt */
+
+#kontakt{
+
+    text-align:center;
+
+}
+
+#kontakt a{
+
+    color:#66b3ff;
+
+    text-decoration:none;
+
+}
+
+/* Footer */
+
+footer{
+
+    padding:45px;
+
+    text-align:center;
+
+    background:#091321;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+footer a{
+
+    color:#8ebcff;
+
+    text-decoration:none;
+
+    margin:0 15px;
+
+}
+
+footer a:hover{
+
+    color:white;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+header h1{
+
+font-size:42px;
+
+}
+
+header p{
+
+font-size:18px;
+
+}
+
+section{
+
+padding:70px 20px;
+
+}
+
+section h2{
+
+font-size:32px;
+
+}
+
+.card{
+
+padding:28px;
+
+}
+
+}
