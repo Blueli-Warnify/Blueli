@@ -1810,7 +1810,67 @@ grid-template-columns:1fr;
     }
 
 }
+.checkbox{
 
+display:flex;
+
+align-items:flex-start;
+
+gap:12px;
+
+font-size:14px;
+
+margin:20px 0;
+
+color:#b8c3d9;
+
+line-height:1.5;
+
+}
+
+.checkbox input{
+
+margin-top:4px;
+
+}
+
+#result{
+
+margin-top:20px;
+
+font-weight:600;
+
+}
+
+.success{
+
+color:#33d17a;
+
+}
+
+.error{
+
+color:#ff5b5b;
+
+}
+
+.button{
+
+position:relative;
+
+overflow:hidden;
+
+transition:.3s;
+
+}
+
+.button:disabled{
+
+opacity:.7;
+
+cursor:not-allowed;
+
+}
 /* =======================================================
    END
 ======================================================= */
