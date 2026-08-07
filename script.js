@@ -215,3 +215,62 @@ document.querySelectorAll(".button").forEach(button=>{
     });
 
 });
+const form = document.getElementById("contactForm");
+
+if(form){
+
+form.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const result=document.getElementById("result");
+
+const button=document.querySelector(".button");
+
+const buttonText=document.getElementById("buttonText");
+
+const loading=document.getElementById("loading");
+
+button.disabled=true;
+
+buttonText.style.display="none";
+
+loading.style.display="inline";
+
+const data=new FormData(form);
+
+const response=await fetch("https://api.web3forms.com/submit",{
+
+method:"POST",
+
+body:data
+
+});
+
+const json=await response.json();
+
+loading.style.display="none";
+
+buttonText.style.display="inline";
+
+button.disabled=false;
+
+if(json.success){
+
+result.className="success";
+
+result.innerHTML="✅ Vielen Dank! Ihre Nachricht wurde erfolgreich versendet.";
+
+form.reset();
+
+}else{
+
+result.className="error";
+
+result.innerHTML="❌ Nachricht konnte nicht versendet werden. Bitte versuchen Sie es später erneut.";
+
+}
+
+});
+
+}
