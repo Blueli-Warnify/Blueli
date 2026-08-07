@@ -1872,5 +1872,83 @@ cursor:not-allowed;
 
 }
 /* =======================================================
+   LEGAL PAGES
+======================================================= */
+
+.legal-page{
+    padding:140px 0 80px;
+}
+
+.legal-container{
+    width:min(1000px,92%);
+    margin:0 auto;
+}
+
+.legal-header{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.legal-header h1{
+    font-size:56px;
+    margin-bottom:15px;
+}
+
+.legal-header p{
+    color:var(--text-light);
+    font-size:18px;
+}
+
+.legal-box{
+    background:rgba(20,34,56,.72);
+    backdrop-filter:blur(18px);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:35px;
+    margin-bottom:28px;
+    transition:.35s;
+}
+
+.legal-box:hover{
+    transform:translateY(-6px);
+    border-color:rgba(29,107,255,.35);
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.35),
+        0 0 30px rgba(29,107,255,.15);
+}
+
+.legal-box h2{
+    color:var(--secondary);
+    margin-bottom:18px;
+    font-size:24px;
+}
+
+.legal-box p{
+    color:var(--text-light);
+    line-height:1.8;
+}
+
+.legal-box strong{
+    color:#fff;
+}
+
+.legal-box a{
+    color:var(--secondary);
+    text-decoration:none;
+}
+
+.legal-box a:hover{
+    text-decoration:underline;
+}
+
+.legal-back{
+    margin-top:50px;
+    text-align:center;
+}
+
+.legal-back .button{
+    display:inline-flex;
+}
+/* =======================================================
    END
 ======================================================= */
