@@ -657,21 +657,86 @@
 
         </div>
 
-        <div class="contact-form">
+       <div class="contact-form">
 
-            <form>
+<form id="contactForm">
 
-                <input type="text" placeholder="Name">
+<input
+type="hidden"
+name="access_key"
+value="DEIN_ACCESS_KEY">
 
-                <input type="email" placeholder="E-Mail">
+<input
+type="hidden"
+name="subject"
+value="Neue Nachricht über die Blueli Website">
 
-                <textarea placeholder="Nachricht"></textarea>
+<input
+type="hidden"
+name="from_name"
+value="Blueli Kontaktformular">
 
-                <button class="button">
-                    Nachricht senden
-                </button>
+<input
+type="checkbox"
+name="botcheck"
+class="hidden"
+style="display:none;">
 
-            </form>
+<input
+type="text"
+name="name"
+placeholder="Ihr Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Ihre E-Mail-Adresse"
+required>
+
+<textarea
+name="message"
+placeholder="Ihre Nachricht..."
+required></textarea>
+
+<label class="checkbox">
+
+<input
+type="checkbox"
+required>
+
+Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.
+
+</label>
+
+<button
+type="submit"
+class="button">
+
+<span id="buttonText">
+
+Nachricht senden
+
+</span>
+
+<span
+id="loading"
+style="display:none;">
+
+Wird gesendet...
+
+</span>
+
+</button>
+
+<div
+id="result">
+
+</div>
+
+</form>
+
+</div>
 
         </div>
 
