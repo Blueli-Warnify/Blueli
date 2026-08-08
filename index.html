@@ -108,30 +108,155 @@
 
     <div class="hero-right">
 
-        <div class="phone">
+    <div class="phone">
 
-            <div class="phone-top"></div>
+        <div class="phone-screen">
 
-            <div class="phone-screen">
+            <!-- Statusleiste -->
+            <div class="status-bar">
+                <span id="phoneTime">20:08</span>
 
-                <img src="logo.png" alt="Blueli">
+                <div class="status-icons">
+                    <span>●</span>
+                    <span>⌁</span>
+                    <span>▮▮</span>
+                </div>
+            </div>
 
-                <h3>Blueli</h3>
+            <!-- App-Leiste -->
+            <div class="appbar">
 
-                <p>
+                <div class="app-action">
+                    🔊
+                </div>
 
-                    Einsatzfahrzeug erkannt
+                <div class="app-title">
+                    Blueli-Warnify
+                </div>
 
-                </p>
+                <div class="app-action">
+                    ⋮
+                </div>
 
-                <div class="alert-card">
+            </div>
 
-                    🚑
-                    Einsatzfahrzeug nähert sich
+            <!-- APP INHALT -->
+            <div class="app-content">
+
+                <!-- NEUTRAL -->
+                <div
+                    class="neutral-view"
+                    id="neutralView"
+                >
+
+                    <div class="neutral-icon">
+                        🔕
+                    </div>
+
+                    <div class="neutral-text">
+                        Keine aktiven Alarme
+                        <span class="neutral-check">✅</span>
+                    </div>
+
+                </div>
+
+
+                <!-- ALARM -->
+                <div
+                    class="alarm-view"
+                    id="alarmView"
+                    style="display:none;"
+                >
+
+                    <div class="alarm-notification">
+                        🚨 Alarm ausgelöst! · Jetzt
+                    </div>
+
+                    <div class="alarm-card">
+
+                        <div class="alarm-card-header">
+
+                            <div class="alarm-title">
+                                Abstand zu 🚑 Rettungswagen:
+                                <br>
+                                <strong>465 Meter</strong>
+                            </div>
+
+                            <div class="warning-icon">
+                                ⚠
+                            </div>
+
+                        </div>
+
+                        <div class="alarm-countdown">
+                            Alarm endet in 9 s
+                        </div>
+
+                        <div class="alarm-hint">
+                            ⚠️ Bitte machen Sie Einsatzfahrzeugen
+                            zügig Platz. Beachten Sie dabei stets
+                            die StVO.
+                        </div>
+
+                    </div>
+
+
+                    <div class="vehicle-label">
+                        🚒 Feuerwehr
+                        <span class="vehicle-moving">
+                            ↔ entfernt sich
+                        </span>
+                    </div>
+
+
+                    <div class="alarm-card">
+
+                        <div class="alarm-card-header">
+
+                            <div class="alarm-title">
+                                Abstand zu 🚒 Feuerwehr:
+                                <br>
+                                <strong>475 Meter</strong>
+                            </div>
+
+                            <div class="warning-icon">
+                                ⚠
+                            </div>
+
+                        </div>
+
+                        <div class="alarm-countdown">
+                            Alarm endet in 17 s
+                        </div>
+
+                    </div>
 
                 </div>
 
             </div>
+
+
+            <!-- UNTERE NAVIGATION -->
+            <div class="bottom-navigation">
+
+                <div class="nav-item active">
+                    <div class="nav-icon">⚠</div>
+                    <span>Alarm</span>
+                </div>
+
+                <div class="nav-item">
+                    <div class="nav-icon">◴</div>
+                    <span>Verlauf</span>
+                </div>
+
+                <div class="nav-item">
+                    <div class="nav-icon">⚙</div>
+                    <span>Einstellungen</span>
+                </div>
+
+            </div>
+
+            <div class="home-indicator"></div>
 
         </div>
 
