@@ -1951,164 +1951,344 @@ cursor:not-allowed;
 }
 /* ==========================================================
    BLUELI SMARTPHONE PREVIEW
+   ISOLIERT VON DER RESTLICHEN WEBSITE
 ========================================================== */
 
-.phone {
-    width: 340px;
-    height: 690px;
-    padding: 10px;
-    border-radius: 42px;
-
+.app-preview-section {
     position: relative;
 
-    background:
-        linear-gradient(145deg, #252525, #050505);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 80px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+
+    padding: 100px 30px;
+}
+
+
+/* ==========================================================
+   LINKER TEXTBEREICH
+========================================================== */
+
+.app-preview-section .preview-copy {
+    flex: 1;
+    max-width: 560px;
+}
+
+.app-preview-section .preview-label {
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    border: 1px solid rgba(29, 140, 255, .5);
+
+    border-radius: 30px;
+
+    color: #48a9ff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: .08em;
+}
+
+.app-preview-section .preview-copy h1 {
+    margin: 25px 0 20px;
+
+    font-size: clamp(42px, 5vw, 68px);
+
+    line-height: 1.05;
+
+    color: #ffffff;
+}
+
+.app-preview-section .preview-copy p {
+    margin-bottom: 30px;
+
+    color: #b9c8dd;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   DEMO BUTTONS
+========================================================== */
+
+.app-preview-section .preview-controls {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.app-preview-section .preview-btn {
+    padding: 12px 22px;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.05);
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.app-preview-section .preview-btn:hover {
+    transform: translateY(-2px);
+
+    background: rgba(255,255,255,.10);
+}
+
+.app-preview-section .preview-btn.active {
+    background: linear-gradient(
+        135deg,
+        #168cff,
+        #00c6ff
+    );
+
+    border-color: transparent;
 
     box-shadow:
-        0 40px 80px rgba(0,0,0,.55),
-        0 0 70px rgba(29,107,255,.18);
+        0 10px 30px rgba(0,150,255,.25);
+}
 
-    overflow: hidden;
+
+/* ==========================================================
+   PHONE STAGE
+========================================================== */
+
+.app-preview-section .phone-stage {
+    position: relative;
+
+    width: 380px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     flex-shrink: 0;
 }
 
-/* äußerer blauer Rand */
 
-.phone::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
+/* ==========================================================
+   PHONE
+========================================================== */
 
-    border-radius: 44px;
+.app-preview-section .phone {
+    position: relative;
 
-    background: linear-gradient(
-        135deg,
-        #2d8fff,
-        #00d4ff,
-        #2d8fff
-    );
+    width: 292px;
+    height: 596px;
 
-    z-index: -1;
+    padding: 8px;
+
+    border-radius: 38px;
+
+    background: #111111;
+
+    border: 1px solid #2e3945;
+
+    box-shadow:
+        0 35px 80px rgba(0,0,0,.55),
+        0 0 60px rgba(0,130,255,.15);
+
+    transform: rotate(0deg);
+
+    z-index: 2;
 }
+
+
+/* ==========================================================
+   PHONE SIDE BUTTONS
+========================================================== */
+
+.app-preview-section .phone .side {
+    position: absolute;
+
+    right: -3px;
+
+    width: 3px;
+
+    background: #303030;
+
+    border-radius: 0 3px 3px 0;
+}
+
+.app-preview-section .phone .b1 {
+    top: 120px;
+    height: 60px;
+}
+
+.app-preview-section .phone .b2 {
+    top: 195px;
+    height: 32px;
+}
+
+
+/* ==========================================================
+   PHONE FRAME
+========================================================== */
+
+.app-preview-section .phone-frame {
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+
+    border-radius: 31px;
+
+    background: #f4f5f7;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
 
 /* ==========================================================
    PHONE SCREEN
 ========================================================== */
 
-.phone-screen {
+.app-preview-section .phone-screen {
     width: 100%;
     height: 100%;
 
-    border-radius: 34px;
+    position: relative;
 
     overflow: hidden;
-
-    background: #f4f6f8;
-
-    color: #17202a;
 
     display: flex;
     flex-direction: column;
 
-    position: relative;
+    background: #f3f5f7;
+
+    color: #17202a;
 }
+
 
 /* ==========================================================
    STATUS BAR
 ========================================================== */
 
-.status-bar {
-    height: 32px;
+.app-preview-section .status-bar {
+    height: 30px;
 
-    padding: 8px 16px 0;
+    padding: 7px 14px 0;
 
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 
     background: #ffffff;
 
-    font-size: 11px;
+    color: #111827;
+
+    font-size: 9px;
     font-weight: 700;
 
     flex-shrink: 0;
 }
 
-.status-icons {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-
-    font-size: 10px;
-}
 
 /* ==========================================================
-   APP BAR
+   APP HEADER
 ========================================================== */
 
-.appbar {
-    height: 58px;
+.app-preview-section .app-header {
+    height: 52px;
+
+    padding: 0 15px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 16px;
-
     background: #ffffff;
 
-    border-bottom: 1px solid #e5e8ec;
+    border-bottom: 1px solid #e4e7eb;
 
     flex-shrink: 0;
 }
 
-.app-title {
-    font-size: 17px;
-    font-weight: 700;
+.app-preview-section .app-header strong {
+    font-size: 15px;
 
-    color: #17202a;
+    color: #111827;
 }
 
-.app-action {
-    width: 32px;
-    height: 32px;
+.app-preview-section .app-header button {
+    border: 0;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: transparent;
 
-    font-size: 19px;
+    padding: 4px;
 
-    color: #243447;
+    font-size: 15px;
+
+    cursor: pointer;
 }
+
 
 /* ==========================================================
    APP CONTENT
 ========================================================== */
 
-.app-content {
+.app-preview-section .app-content {
     flex: 1;
 
-    overflow: hidden;
+    min-height: 0;
 
     position: relative;
+
+    overflow: hidden;
 
     background:
         linear-gradient(
             180deg,
             #f5f7f9 0%,
-            #edf1f5 100%
+            #edf1f4 100%
         );
 }
 
+
 /* ==========================================================
-   NEUTRAL VIEW
+   APP STATES
 ========================================================== */
 
-.neutral-view {
-    width: 100%;
-    height: 100%;
+.app-preview-section .app-state {
+    position: absolute;
 
+    inset: 0;
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+}
+
+.app-preview-section .hidden {
+    display: none;
+}
+
+
+/* ==========================================================
+   NORMAL STATE
+========================================================== */
+
+.app-preview-section .normal-state {
     display: flex;
 
     flex-direction: column;
@@ -2116,217 +2296,237 @@ cursor:not-allowed;
     align-items: center;
     justify-content: center;
 
-    text-align: center;
+    gap: 25px;
 
-    padding: 30px;
+    padding-bottom: 25px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #172b3f;
 }
 
-.neutral-icon {
-    width: 92px;
-    height: 92px;
-
-    border-radius: 50%;
+.app-preview-section .normal-logo-wrap {
+    width: 82px;
+    height: 82px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    border-radius: 50%;
+
     background: #ffffff;
 
     box-shadow:
         0 8px 25px rgba(0,0,0,.10);
-
-    font-size: 42px;
-
-    margin-bottom: 25px;
 }
 
-.neutral-text {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.app-preview-section .app-logo {
+    width: 48px;
+    height: 48px;
 
-    font-size: 18px;
-
-    font-weight: 600;
-
-    color: #3d4854;
+    object-fit: contain;
 }
 
-.neutral-check {
-    font-size: 18px;
-}
 
 /* ==========================================================
-   ALARM VIEW
+   ALARM STATE
 ========================================================== */
 
-.alarm-view {
-    width: 100%;
-    height: 100%;
-
-    padding: 15px;
+.app-preview-section .alarm-state {
+    padding: 10px;
 
     overflow-y: auto;
 
     background:
         linear-gradient(
             180deg,
-            #fff7f7,
-            #f3f5f7
+            #f5f7f9,
+            #edf0f3
         );
 }
 
+
 /* ==========================================================
-   ALARM NOTIFICATION
+   NOTIFICATION
 ========================================================== */
 
-.alarm-notification {
-    padding: 13px 15px;
+.app-preview-section .notification-card {
+    display: grid;
 
-    margin-bottom: 14px;
+    grid-template-columns: 25px 1fr 20px;
 
-    border-radius: 13px;
+    gap: 7px;
 
-    background: #ffebeb;
+    align-items: start;
 
-    border: 1px solid #ffbcbc;
+    padding: 10px;
 
-    color: #c62828;
+    margin-bottom: 10px;
 
-    font-size: 13px;
+    border-radius: 12px;
 
-    font-weight: 700;
+    background: #f8f9fa;
 
     box-shadow:
-        0 5px 15px rgba(220,0,0,.08);
+        0 3px 10px rgba(0,0,0,.14);
+
+    font-size: 8px;
 }
+
+.app-preview-section .notification-card strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 9px;
+
+    color: #1f2937;
+}
+
+.app-preview-section .notification-card span {
+    display: block;
+}
+
+.app-preview-section .notification-card button {
+    margin-top: 5px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #245bb5;
+
+    font-size: 8px;
+
+    cursor: pointer;
+}
+
+.app-preview-section .notification-arrow {
+    font-size: 15px;
+}
+
+
+/* ==========================================================
+   ALARM LIST
+========================================================== */
+
+.app-preview-section .alarm-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
 
 /* ==========================================================
    ALARM CARD
 ========================================================== */
 
-.alarm-card {
-    width: 100%;
+.app-preview-section .alarm-card {
+    padding: 11px;
 
-    padding: 17px;
+    border-radius: 11px;
 
-    margin-bottom: 14px;
+    background: #ffd6d6;
 
-    border-radius: 17px;
+    border: 1px solid #ffb4b4;
 
-    background: #ffffff;
+    color: #1d2733;
 
-    border: 1px solid #e2e6ea;
+    font-size: 10px;
 
     box-shadow:
-        0 8px 22px rgba(0,0,0,.08);
+        0 4px 12px rgba(0,0,0,.08);
 }
 
-.alarm-card-header {
+.app-preview-section .alarm-title {
     display: flex;
-
-    justify-content: space-between;
 
     align-items: flex-start;
 
-    gap: 10px;
-}
-
-.alarm-title {
-    font-size: 14px;
-
-    line-height: 1.45;
-
-    color: #3c4650;
-}
-
-.alarm-title strong {
-    display: inline-block;
-
-    margin-top: 4px;
-
-    font-size: 24px;
-
-    color: #18232e;
-}
-
-.warning-icon {
-    width: 42px;
-    height: 42px;
-
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #fff0f0;
-
-    color: #e53935;
-
-    font-size: 24px;
-
-    flex-shrink: 0;
-}
-
-.alarm-countdown {
-    margin-top: 13px;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    color: #e53935;
-}
-
-.alarm-hint {
-    margin-top: 14px;
-
-    padding-top: 13px;
-
-    border-top: 1px solid #eeeeee;
-
-    font-size: 11px;
-
-    line-height: 1.5;
-
-    color: #68737e;
-}
-
-/* ==========================================================
-   VEHICLE LABEL
-========================================================== */
-
-.vehicle-label {
-    display: flex;
-
-    align-items: center;
     justify-content: space-between;
 
-    margin: 4px 4px 8px;
+    gap: 6px;
 
-    font-size: 13px;
-
-    font-weight: 700;
-
-    color: #3b4650;
+    margin-bottom: 5px;
 }
 
-.vehicle-moving {
-    font-size: 11px;
+.app-preview-section .alarm-title strong {
+    font-size: 10px;
+}
+
+.app-preview-section .alarm-title b {
+    color: #d82323;
+
+    font-size: 18px;
+
+    line-height: 1;
+}
+
+.app-preview-section .countdown {
+    margin-top: 9px;
+
+    font-size: 9px;
 
     font-weight: 600;
-
-    color: #159447;
 }
+
+.app-preview-section .countdown b {
+    font-size: 10px;
+}
+
+.app-preview-section .alarm-card p {
+    margin: 8px 0 0;
+
+    font-size: 8px;
+
+    line-height: 1.45;
+}
+
+
+/* ==========================================================
+   VEHICLE HEADING
+========================================================== */
+
+.app-preview-section .vehicle-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 2px 5px;
+
+    color: #e32828;
+
+    font-size: 10px;
+}
+
+.app-preview-section .vehicle-heading strong {
+    display: block;
+
+    font-size: 11px;
+}
+
+.app-preview-section .vehicle-heading span {
+    color: #199447;
+
+    font-size: 8px;
+}
+
 
 /* ==========================================================
    BOTTOM NAVIGATION
 ========================================================== */
 
-.bottom-navigation {
-    height: 66px;
+.app-preview-section .bottom-nav {
+    height: 58px;
 
     display: flex;
 
@@ -2336,13 +2536,17 @@ cursor:not-allowed;
 
     background: #ffffff;
 
-    border-top: 1px solid #e1e5e9;
+    border-top: 1px solid #e1e4e8;
 
     flex-shrink: 0;
 }
 
-.nav-item {
+.app-preview-section .nav-item {
     flex: 1;
+
+    border: 0;
+
+    background: transparent;
 
     display: flex;
 
@@ -2351,93 +2555,89 @@ cursor:not-allowed;
     align-items: center;
     justify-content: center;
 
-    gap: 3px;
+    gap: 2px;
 
-    color: #8a949e;
+    color: #7c8792;
 
-    font-size: 10px;
+    font-size: 8px;
 
-    font-weight: 600;
+    cursor: pointer;
 }
 
-.nav-icon {
-    font-size: 21px;
-
-    line-height: 1;
+.app-preview-section .nav-item:first-letter {
+    font-size: 18px;
 }
 
-.nav-item.active {
-    color: #1976d2;
+.app-preview-section .nav-item span {
+    font-size: 8px;
 }
 
-.nav-item.active .nav-icon {
-    transform: scale(1.05);
+.app-preview-section .nav-item.active {
+    color: #1769aa;
 }
+
 
 /* ==========================================================
-   HOME INDICATOR
+   GESTURE BAR
 ========================================================== */
 
-.home-indicator {
+.app-preview-section .gesture-bar {
     position: absolute;
 
-    bottom: 5px;
+    bottom: 4px;
 
     left: 50%;
 
     transform: translateX(-50%);
 
-    width: 90px;
+    width: 75px;
     height: 4px;
 
-    border-radius: 10px;
+    border-radius: 5px;
 
-    background: #202020;
+    background: #333333;
 
-    opacity: .75;
-
-    z-index: 20;
+    z-index: 10;
 }
+
 
 /* ==========================================================
-   ALARM ANIMATION
+   RESPONSIVE
 ========================================================== */
 
-.alarm-view .alarm-card {
-    animation: alarmCardIn .45s ease;
+@media (max-width: 850px) {
+
+    .app-preview-section {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 50px;
+    }
+
+    .app-preview-section .preview-copy {
+        max-width: 650px;
+    }
+
+    .app-preview-section .preview-controls {
+        justify-content: center;
+    }
+
 }
 
-@keyframes alarmCardIn {
+@media (max-width: 500px) {
 
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+    .app-preview-section {
+        padding: 70px 15px;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .app-preview-section .phone-stage {
+        width: 100%;
     }
 
-}
-
-/* ==========================================================
-   PHONE RESPONSIVE
-========================================================== */
-
-@media(max-width:650px) {
-
-    .phone {
-        width: 310px;
-        height: 630px;
-    }
-
-    .app-title {
-        font-size: 15px;
-    }
-
-    .alarm-title strong {
-        font-size: 21px;
+    .app-preview-section .phone {
+        width: 275px;
+        height: 560px;
     }
 
 }
