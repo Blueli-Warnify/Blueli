@@ -1,1176 +1,812 @@
 <!DOCTYPE html>
+
 <html lang="de">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Blueli Warnify – Smartphone Vorschau</title>
+<meta charset="UTF-8">
 
-    <style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* =========================================================
-           GRUNDLAGEN
-        ========================================================= */
+<title>Blueli | Warnung vor Einsatzfahrzeugen in Echtzeit</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta name="description" content="Blueli informiert Verkehrsteilnehmer frühzeitig über herannahende Einsatzfahrzeuge und unterstützt eine sichere Rettungsgassenbildung.">
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+<meta name="theme-color" content="#0b1220">
 
-            background:
-                radial-gradient(circle at 20% 20%, rgba(29,107,255,.18), transparent 35%),
-                radial-gradient(circle at 80% 80%, rgba(0,255,100,.08), transparent 35%),
-                #080a0d;
+<link rel="stylesheet" href="style.css">
 
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Roboto,
-                Arial,
-                sans-serif;
+<link rel="icon" href="logo.png">
 
-            color: white;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        /* =========================================================
-           DEMO-BEREICH
-        ========================================================= */
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        .demo-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .demo-title {
-            text-align: center;
-        }
-
-        .demo-title h1 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .demo-title p {
-            color: #9fa4aa;
-            font-size: 14px;
-        }
-
-
-        /* =========================================================
-           SMARTPHONE
-        ========================================================= */
-
-        .phone {
-            position: relative;
-
-            width: 310px;
-            height: 640px;
-
-            padding: 9px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #30343a,
-                    #0b0d10 35%,
-                    #202328 70%,
-                    #050607
-                );
-
-            border-radius: 42px;
-
-            box-shadow:
-                0 35px 80px rgba(0,0,0,.65),
-                0 0 0 2px #45484c,
-                inset 0 0 0 2px #080909;
-
-            overflow: hidden;
-        }
-
-
-        /* =========================================================
-           DISPLAY
-        ========================================================= */
-
-        .phone-screen {
-            position: relative;
-
-            width: 100%;
-            height: 100%;
-
-            overflow: hidden;
-
-            border-radius: 34px;
-
-            background: #050505;
-
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,.08);
-        }
-
-
-        /* =========================================================
-           FRONT CAMERA / PUNCH HOLE
-        ========================================================= */
-
-        .camera {
-            position: absolute;
-
-            top: 7px;
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            width: 18px;
-            height: 18px;
-
-            background: #050505;
-
-            border-radius: 50%;
-
-            z-index: 100;
-
-            box-shadow:
-                inset 0 0 0 2px #111,
-                0 1px 4px rgba(0,0,0,.7);
-        }
-
-
-        /* =========================================================
-           STATUSBAR
-        ========================================================= */
-
-        .statusbar {
-            height: 29px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 0 13px;
-
-            background: #19c900;
-
-            color: #050505;
-
-            font-size: 11px;
-
-            position: relative;
-            z-index: 20;
-        }
-
-        .status-left {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .status-right {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .battery {
-            width: 20px;
-            height: 9px;
-
-            border: 1px solid #111;
-            border-radius: 2px;
-
-            position: relative;
-        }
-
-        .battery::after {
-            content: "";
-
-            position: absolute;
-
-            right: -3px;
-            top: 2px;
-
-            width: 2px;
-            height: 4px;
-
-            background: #111;
-        }
-
-        .battery-level {
-            width: 85%;
-            height: 100%;
-            background: #111;
-        }
-
-
-        /* =========================================================
-           APP BAR
-        ========================================================= */
-
-        .appbar {
-            height: 61px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 0 14px;
-
-            background: #19c900;
-
-            color: #050505;
-
-            font-weight: 700;
-
-            position: relative;
-            z-index: 10;
-        }
-
-        .app-title {
-            flex: 1;
-
-            text-align: center;
-
-            font-size: 16px;
-            font-weight: 700;
-        }
-
-        .app-action {
-            width: 28px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 18px;
-        }
-
-        .app-action.menu {
-            font-size: 20px;
-        }
-
-
-        /* =========================================================
-           APP CONTENT
-        ========================================================= */
-
-        .app-content {
-            position: absolute;
-
-            top: 90px;
-            bottom: 71px;
-
-            left: 0;
-            right: 0;
-
-            overflow: hidden;
-
-            background: #050505;
-        }
-
-
-        /* =========================================================
-           NEUTRALER ZUSTAND
-        ========================================================= */
-
-        .neutral-view {
-
-            height: 100%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            flex-direction: column;
-
-            gap: 13px;
-        }
-
-        .neutral-icon {
-
-            width: 86px;
-            height: 86px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: #651c1c;
-
-            font-size: 42px;
-
-            box-shadow:
-                0 0 30px rgba(255,0,0,.08);
-        }
-
-        .neutral-text {
-
-            font-size: 16px;
-
-            color: #c8c8c8;
-
-            text-align: center;
-        }
-
-        .neutral-check {
-            font-size: 18px;
-        }
-
-
-        /* =========================================================
-           ALARM VIEW
-        ========================================================= */
-
-        .alarm-view {
-
-            height: 100%;
-
-            padding: 10px;
-
-            overflow-y: auto;
-
-            scrollbar-width: none;
-        }
-
-        .alarm-view::-webkit-scrollbar {
-            display: none;
-        }
-
-
-        /* =========================================================
-           ANDROID BENACHRICHTIGUNG
-        ========================================================= */
-
-        .notification {
-
-            background: #f1f3f5;
-
-            color: #202124;
-
-            border-radius: 0 0 17px 17px;
-
-            padding: 12px 12px 10px;
-
-            margin: -10px -1px 9px;
-
-            box-shadow:
-                0 5px 14px rgba(0,0,0,.35);
-
-            font-size: 11px;
-        }
-
-        .notification-header {
-
-            display: flex;
-            align-items: center;
-
-            gap: 6px;
-
-            margin-bottom: 6px;
-
-            font-size: 11px;
-        }
-
-        .notification-icon {
-
-            width: 12px;
-            height: 12px;
-
-            background: #e52b2b;
-
-            border-radius: 50%;
-        }
-
-        .notification-title {
-            font-weight: 600;
-        }
-
-        .notification-time {
-            margin-left: auto;
-            color: #666;
-        }
-
-        .notification-message {
-            line-height: 1.35;
-
-            padding-left: 18px;
-        }
-
-        .notification-button {
-
-            margin-top: 8px;
-
-            padding-left: 18px;
-
-            color: #3656a8;
-
-            font-size: 10px;
-
-            font-weight: 600;
-        }
-
-
-        /* =========================================================
-           ALARM-KARTE
-        ========================================================= */
-
-        .alarm-card {
-
-            background: #ffc8cc;
-
-            color: #171717;
-
-            border-radius: 10px;
-
-            padding: 12px;
-
-            margin-bottom: 9px;
-
-            box-shadow:
-                0 3px 10px rgba(0,0,0,.25);
-        }
-
-        .alarm-card-header {
-
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-
-            gap: 8px;
-
-            margin-bottom: 7px;
-        }
-
-        .alarm-title {
-
-            font-size: 13px;
-
-            font-weight: 700;
-
-            line-height: 1.35;
-        }
-
-        .warning-icon {
-
-            color: #e2222b;
-
-            font-size: 22px;
-
-            line-height: 1;
-        }
-
-        .alarm-distance {
-
-            font-size: 13px;
-
-            font-weight: 600;
-
-            margin-bottom: 10px;
-        }
-
-        .alarm-countdown {
-
-            font-size: 13px;
-
-            font-weight: 600;
-
-            margin-bottom: 11px;
-        }
-
-        .alarm-hint {
-
-            font-size: 10px;
-
-            line-height: 1.35;
-
-            color: #343434;
-        }
-
-
-        /* =========================================================
-           FEUERWEHR / FAHRZEUG LABEL
-        ========================================================= */
-
-        .vehicle-label {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 5px;
-
-            margin: 7px 3px 5px;
-
-            font-size: 13px;
-
-            font-weight: 700;
-
-            color: #ff3030;
-        }
-
-        .vehicle-moving {
-
-            color: #39cf6a;
-
-            font-size: 11px;
-
-            font-weight: 600;
-        }
-
-
-        /* =========================================================
-           NAVIGATION UNTEN
-        ========================================================= */
-
-        .bottom-nav {
-
-            position: absolute;
-
-            bottom: 0;
-            left: 0;
-            right: 0;
-
-            height: 71px;
-
-            display: flex;
-
-            background: #151515;
-
-            border-top:
-                1px solid rgba(255,255,255,.05);
-
-            box-shadow:
-                0 -8px 20px rgba(0,0,0,.3);
-
-            z-index: 30;
-        }
-
-        .nav-item {
-
-            flex: 1;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 5px;
-
-            color: #bcbcbc;
-
-            font-size: 9px;
-
-            cursor: pointer;
-
-            transition: .2s;
-        }
-
-        .nav-item:hover {
-            color: white;
-        }
-
-        .nav-item.active {
-            color: #22d400;
-        }
-
-        .nav-icon {
-            font-size: 20px;
-            line-height: 1;
-        }
-
-
-        /* =========================================================
-           HOME INDICATOR
-        ========================================================= */
-
-        .home-indicator {
-
-            position: absolute;
-
-            bottom: 4px;
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            width: 76px;
-            height: 4px;
-
-            background: #eee;
-
-            border-radius: 10px;
-
-            z-index: 50;
-
-            opacity: .9;
-        }
-
-
-        /* =========================================================
-           DEMO BUTTONS
-        ========================================================= */
-
-        .demo-controls {
-
-            display: flex;
-
-            gap: 10px;
-
-            flex-wrap: wrap;
-
-            justify-content: center;
-        }
-
-        .demo-button {
-
-            border: 1px solid rgba(255,255,255,.1);
-
-            background: rgba(255,255,255,.05);
-
-            color: white;
-
-            padding: 10px 16px;
-
-            border-radius: 10px;
-
-            cursor: pointer;
-
-            transition: .2s;
-        }
-
-        .demo-button:hover {
-
-            background: rgba(29,107,255,.2);
-
-            border-color: rgba(29,107,255,.5);
-        }
-
-        .demo-button.active {
-
-            background: #1d6bff;
-
-            border-color: #1d6bff;
-        }
-
-
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
-
-        @media (max-width: 500px) {
-
-            body {
-                padding: 20px;
-            }
-
-            .demo-title {
-                display: none;
-            }
-
-            .phone {
-                transform: scale(.92);
-            }
-        }
-
-    </style>
 </head>
-
 
 <body>
 
+<div class="background-glow"></div>
 
-<div class="demo-wrapper">
+<nav class="navbar">
 
+<div class="container nav-content">
 
-    <!-- =========================================================
-         SMARTPHONE
-    ========================================================= -->
+    <a class="logo" href="#">
 
-    <div class="phone">
+        <img src="logo.png" alt="Blueli">
 
-        <div class="phone-screen">
+        <span>Blueli</span>
 
+    </a>
 
-            <!-- Kamera -->
-            <div class="camera"></div>
+    <ul class="menu">
 
+        <li><a href="#features">Funktionen</a></li>
 
-            <!-- =================================================
-                 STATUSBAR
-            ================================================== -->
+        <li><a href="#how">So funktioniert's</a></li>
 
-            <div class="statusbar">
+        <li><a href="#faq">FAQ</a></li>
 
-                <div class="status-left">
+        <li><a href="#contact">Kontakt</a></li>
 
-                    <span id="clock">20:08</span>
+    </ul>
 
-                    <span>●</span>
+    <a href="#contact" class="button button-small">
+        Kontakt
+    </a>
 
-                    <span>◇</span>
+</div>
 
-                </div>
+</nav>
 
+<header class="hero">
 
-                <div class="status-right">
+<div class="container hero-grid">
 
-                    <span>⌖</span>
+    <div class="hero-left">
 
-                    <span>▴</span>
+        <div class="badge">
+            🚑 Frühzeitige Warnung vor Einsatzfahrzeugen
+        </div>
 
-                    <div class="battery">
+        <h1>
 
-                        <div class="battery-level"></div>
+            Mehr Sicherheit.
 
-                    </div>
+            <span>Mehr Reaktionszeit.</span>
 
-                </div>
+        </h1>
 
-            </div>
+        <p>
 
+            Blueli informiert Verkehrsteilnehmer in Echtzeit über
+            herannahende Einsatzfahrzeuge und unterstützt so die
+            frühzeitige Bildung einer Rettungsgasse.
 
-            <!-- =================================================
-                 APP BAR
-            ================================================== -->
+        </p>
 
-            <div class="appbar">
+        <div class="hero-buttons">
 
-                <div class="app-action">
-                    🔊
-                </div>
+            <a href="#features" class="button">
 
-                <div class="app-title">
-                    Blueli-Warnify
-                </div>
+                App kennenlernen
 
-                <div class="app-action menu">
-                    ⋮
-                </div>
+            </a>
 
-            </div>
+            <a href="#contact" class="button secondary">
 
+                Kontakt
 
-            <!-- =================================================
-                 APP INHALT
-            ================================================== -->
-
-            <div class="app-content">
-
-
-                <!-- =============================================
-                     NEUTRAL
-                ============================================== -->
-
-                <div
-                    class="neutral-view"
-                    id="neutralView"
-                >
-
-                    <div class="neutral-icon">
-                        🔕
-                    </div>
-
-                    <div class="neutral-text">
-                        Keine aktiven Alarme
-                        <span class="neutral-check">✅</span>
-                    </div>
-
-                </div>
-
-
-                <!-- =============================================
-                     ALARM
-                ============================================== -->
-
-                <div
-                    class="alarm-view"
-                    id="alarmView"
-                    style="display:none;"
-                >
-
-
-                    <!-- Android Notification -->
-
-                    <div class="notification">
-
-                        <div class="notification-header">
-
-                            <div class="notification-icon"></div>
-
-                            <div class="notification-title">
-                                Alarm ausgelöst! · Jetzt
-                            </div>
-
-                            <div class="notification-time">
-                                ⚠
-                            </div>
-
-                        </div>
-
-
-                        <div class="notification-message">
-
-                            🚒 Feuerwehr in 470 m Entfernung erkannt.
-
-                        </div>
-
-
-                        <div class="notification-button">
-
-                            Ton ausschalten
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- =====================================
-                         ALARM 1
-                    ====================================== -->
-
-                    <div class="alarm-card">
-
-                        <div class="alarm-card-header">
-
-                            <div class="alarm-title">
-
-                                Abstand zu 🚑 Rettungswagen:
-                                <br>
-
-                                465 Meter
-
-                            </div>
-
-                            <div class="warning-icon">
-                                ⚠
-                            </div>
-
-                        </div>
-
-
-                        <div class="alarm-countdown">
-
-                            Alarm endet in
-                            <strong>9 s</strong>
-
-                        </div>
-
-
-                        <div class="alarm-hint">
-
-                            ⚠️ Bitte machen Sie Einsatzfahrzeugen
-                            zügig Platz. Beachten Sie dabei stets
-                            die StVO.
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- =====================================
-                         FAHRZEUG 2
-                    ====================================== -->
-
-                    <div class="vehicle-label">
-
-                        🚒 Feuerwehr
-
-                        <span class="vehicle-moving">
-                            ↔ entfernt sich
-                        </span>
-
-                    </div>
-
-
-                    <div class="alarm-card">
-
-                        <div class="alarm-card-header">
-
-                            <div class="alarm-title">
-
-                                Abstand zu 🚒 Feuerwehr:
-                                <br>
-
-                                475 Meter
-
-                            </div>
-
-                            <div class="warning-icon">
-                                ⚠
-                            </div>
-
-                        </div>
-
-
-                        <div class="alarm-countdown">
-
-                            Alarm endet in
-                            <strong>17 s</strong>
-
-                        </div>
-
-
-                        <div class="alarm-hint">
-
-                            ⚠️ Bitte machen Sie Einsatzfahrzeugen
-                            zügig Platz. Beachten Sie dabei stets
-                            die StVO.
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-            <!-- =================================================
-                 BOTTOM NAVIGATION
-            ================================================== -->
-
-            <div class="bottom-nav">
-
-
-                <div
-                    class="nav-item active"
-                    onclick="setNavigation(this)"
-                >
-
-                    <div class="nav-icon">
-                        ⚠
-                    </div>
-
-                    <div>
-                        Alarm
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="nav-item"
-                    onclick="setNavigation(this)"
-                >
-
-                    <div class="nav-icon">
-                        ◷
-                    </div>
-
-                    <div>
-                        Verlauf
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="nav-item"
-                    onclick="setNavigation(this)"
-                >
-
-                    <div class="nav-icon">
-                        ⚙
-                    </div>
-
-                    <div>
-                        Einstellungen
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- Home Indicator -->
-
-            <div class="home-indicator"></div>
-
+            </a>
 
         </div>
 
     </div>
 
+    <div class="hero-right">
 
-    <!-- =========================================================
-         DEMO STEUERUNG
-    ========================================================= -->
+        <div class="phone">
 
-    <div class="demo-title">
+            <div class="phone-top"></div>
 
-        <h1>Blueli-Warnify</h1>
+            <div class="phone-screen">
+
+                <img src="logo.png" alt="Blueli">
+
+                <h3>Blueli</h3>
+
+                <p>
+
+                    Einsatzfahrzeug erkannt
+
+                </p>
+
+                <div class="alert-card">
+
+                    🚑
+                    Einsatzfahrzeug nähert sich
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</header>
+<!-- ===========================
+     FEATURES
+=========================== -->
+
+<section id="features" class="section">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <span>WARUM BLUELI?</span>
+
+        <h2>Mehr Sicherheit im Straßenverkehr.</h2>
 
         <p>
-            Smartphone-Vorschau
+
+            Blueli verbindet moderne Standorttechnologie mit einer
+            intuitiven Benutzeroberfläche, um Verkehrsteilnehmer frühzeitig
+            vor herannahenden Einsatzfahrzeugen zu warnen.
+
         </p>
 
     </div>
 
+    <div class="feature-grid">
 
-    <div class="demo-controls">
+        <div class="feature-card">
 
-        <button
-            class="demo-button active"
-            id="neutralButton"
-            onclick="showNeutral()"
-        >
-            Keine Alarme
-        </button>
+            <div class="icon">🚑</div>
 
-        <button
-            class="demo-button"
-            id="alarmButton"
-            onclick="showAlarm()"
-        >
-            Alarm anzeigen
-        </button>
+            <h3>Echtzeitwarnung</h3>
+
+            <p>
+
+                Frühzeitige Warnungen ermöglichen eine schnellere
+                Reaktion und unterstützen die Bildung einer
+                Rettungsgasse.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="icon">📍</div>
+
+            <h3>GPS-Technologie</h3>
+
+            <p>
+
+                Standortbasierte Warnungen sorgen dafür,
+                dass Hinweise nur dort erscheinen,
+                wo sie tatsächlich relevant sind.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="icon">🔔</div>
+
+            <h3>Push-Benachrichtigungen</h3>
+
+            <p>
+
+                Nutzer werden automatisch informiert,
+                sobald sich ein Einsatzfahrzeug nähert.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="icon">🔒</div>
+
+            <h3>Datenschutz</h3>
+
+            <p>
+
+                Die Verarbeitung personenbezogener Daten erfolgt
+                ausschließlich zur Bereitstellung der
+                Warnfunktion.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="icon">⚡</div>
+
+            <h3>Hohe Performance</h3>
+
+            <p>
+
+                Optimiert für schnelle Reaktionszeiten
+                und einen zuverlässigen Betrieb.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="icon">👥</div>
+
+            <h3>Gruppenverwaltung</h3>
+
+            <p>
+
+                Einsatzorganisationen können Fahrzeuge
+                und Benutzer zentral verwalten.
+
+            </p>
+
+        </div>
 
     </div>
 
+</div>
+
+</section>
+
+<!-- ===========================
+     HOW IT WORKS
+=========================== -->
+
+<section id="how" class="section dark">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <span>SO FUNKTIONIERT ES</span>
+
+        <h2>In vier einfachen Schritten.</h2>
+
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="number">1</div>
+
+            <div>
+
+                <h3>Einsatzfahrzeug startet den Einsatz</h3>
+
+                <p>
+
+                    Die Fahrer-App aktiviert die
+                    Positionsübertragung.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="number">2</div>
+
+            <div>
+
+                <h3>Position wird übertragen</h3>
+
+                <p>
+
+                    Die aktuelle Position wird
+                    sicher an das Warnsystem übermittelt.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="number">3</div>
+
+            <div>
+
+                <h3>Verkehrsteilnehmer erhalten eine Warnung</h3>
+
+                <p>
+
+                    Nutzer innerhalb des Warnbereichs
+                    werden automatisch benachrichtigt.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <div class="number">4</div>
+
+            <div>
+
+                <h3>Rettungsgasse bilden</h3>
+
+                <p>
+
+                    Mehr Reaktionszeit hilft dabei,
+                    Einsatzfahrzeugen schneller
+                    freie Fahrt zu ermöglichen.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
+</section>
+<!-- ===========================
+     APP PREVIEW
+=========================== -->
 
+<section class="section">
 
-<script>
+<div class="container app-grid">
 
-    /* =========================================================
-       UHRZEIT
-    ========================================================= */
+    <div>
 
-    function updateClock() {
+        <span class="section-label">DIE APP</span>
 
-        const now = new Date();
+        <h2>Entwickelt für schnelle Entscheidungen.</h2>
 
-        const hours =
-            String(now.getHours()).padStart(2, "0");
+        <p class="section-text">
 
-        const minutes =
-            String(now.getMinutes()).padStart(2, "0");
+            Blueli wurde entwickelt, um Einsatzfahrzeuge und
+            Verkehrsteilnehmer intelligent miteinander zu verbinden.
+            Die Benutzeroberfläche ist bewusst einfach gehalten,
+            damit Warnungen sofort erkannt und verstanden werden.
 
-        document.getElementById("clock").textContent =
-            `${hours}:${minutes}`;
-    }
+        </p>
 
-    updateClock();
+        <div class="check-list">
 
-    setInterval(updateClock, 10000);
+            <div class="check-item">
 
+                <span>✔</span>
 
-    /* =========================================================
-       NEUTRALER ZUSTAND
-    ========================================================= */
+                Echtzeit-Warnungen
 
-    function showNeutral() {
+            </div>
 
-        document.getElementById("neutralView").style.display =
-            "flex";
+            <div class="check-item">
 
-        document.getElementById("alarmView").style.display =
-            "none";
+                <span>✔</span>
 
+                Dynamische Warnreichweite
 
-        document
-            .getElementById("neutralButton")
-            .classList.add("active");
+            </div>
 
-        document
-            .getElementById("alarmButton")
-            .classList.remove("active");
+            <div class="check-item">
 
+                <span>✔</span>
 
-        document.querySelector(".appbar").style.background =
-            "#19c900";
-    }
+                GPS-Tracking
 
+            </div>
 
-    /* =========================================================
-       ALARM ZUSTAND
-    ========================================================= */
+            <div class="check-item">
 
-    function showAlarm() {
+                <span>✔</span>
 
-        document.getElementById("neutralView").style.display =
-            "none";
+                Push-Benachrichtigungen
 
-        document.getElementById("alarmView").style.display =
-            "block";
+            </div>
 
+            <div class="check-item">
 
-        document
-            .getElementById("alarmButton")
-            .classList.add("active");
+                <span>✔</span>
 
-        document
-            .getElementById("neutralButton")
-            .classList.remove("active");
+                Firebase Cloud
 
+            </div>
 
-        /*
-         * Im echten Screenshot bleibt die Appbar grün.
-         * Die rote Alarmfarbe befindet sich hauptsächlich
-         * in den Alarmkarten.
-         */
+            <div class="check-item">
 
-        document.querySelector(".appbar").style.background =
-            "#19c900";
-    }
+                <span>✔</span>
 
+                Mehrbenutzer-System
 
-    /* =========================================================
-       NAVIGATION
-    ========================================================= */
+            </div>
 
-    function setNavigation(element) {
+        </div>
 
-        document
-            .querySelectorAll(".nav-item")
-            .forEach(item => {
+    </div>
 
-                item.classList.remove("active");
+    <div class="phone-preview">
 
-            });
+        <div class="phone-large">
 
+            <div class="phone-header"></div>
 
-        element.classList.add("active");
+            <div class="phone-content">
 
-    }
+                <img src="logo.png" class="app-logo">
 
+                <h3>BLUELI</h3>
 
-    /* =========================================================
-       AUTOMATISCHE DEMO
-       OPTIONAL
-    ========================================================= */
+                <div class="status success">
 
-    /*
-       Falls du später möchtest, können wir hier automatisch
-       zwischen den beiden Zuständen wechseln.
+                    Einsatz aktiv
 
-       Beispiel:
+                </div>
 
-       setTimeout(showAlarm, 3000);
-    */
+                <div class="mock-card">
 
+                    🚑 Feuerwehr Sulzbach
 
-</script>
+                </div>
 
+                <div class="mock-card">
+
+                    Entfernung
+
+                    <strong>480 m</strong>
+
+                </div>
+
+                <div class="mock-card alert">
+
+                    Warnung aktiv
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+     STATS
+=========================== -->
+
+<section class="stats">
+
+<div class="container stats-grid">
+
+    <div class="stat">
+
+        <h2>GPS</h2>
+
+        <p>Standortbasierte Warnungen</p>
+
+    </div>
+
+    <div class="stat">
+
+        <h2>24/7</h2>
+
+        <p>Verfügbarkeit</p>
+
+    </div>
+
+    <div class="stat">
+
+        <h2>Cloud</h2>
+
+        <p>Firebase Infrastruktur</p>
+
+    </div>
+
+    <div class="stat">
+
+        <h2>DSGVO</h2>
+
+        <p>Datenschutz im Fokus</p>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+     FAQ
+=========================== -->
+
+<section id="faq" class="section">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <span>FAQ</span>
+
+        <h2>Häufig gestellte Fragen</h2>
+
+    </div>
+
+    <div class="faq">
+
+        <details>
+
+            <summary>
+
+                Wie funktioniert Blueli?
+
+            </summary>
+
+            <p>
+
+                Einsatzfahrzeuge übertragen während eines Einsatzes
+                ihre Position. Nutzer innerhalb des Warnbereichs
+                erhalten automatisch eine Benachrichtigung.
+
+            </p>
+
+        </details>
+
+        <details>
+
+            <summary>
+
+                Werden meine Standortdaten dauerhaft gespeichert?
+
+            </summary>
+
+            <p>
+
+                Standortdaten werden ausschließlich zur
+                Bereitstellung der Warnfunktion verarbeitet.
+                Weitere Informationen findest du in der
+                Datenschutzerklärung.
+
+            </p>
+
+        </details>
+
+        <details>
+
+            <summary>
+
+                Benötige ich eine Registrierung?
+
+            </summary>
+
+            <p>
+
+                Für bestimmte Funktionen ist ein Benutzerkonto
+                erforderlich. Die Anmeldung erfolgt über Firebase
+                Authentication.
+
+            </p>
+
+        </details>
+
+        </body>
+        <details>
+
+            <summary>
+
+                Wird Blueli kostenlos sein?
+
+            </summary>
+
+            <p>
+
+                Es wird eine kostenlose Grundversion sowie
+                kostenpflichtige Funktionen für Organisationen
+                geben.
+
+            </p>
+
+        </details>
+
+    </div>
+
+</div>
+
+</section>
+    <section id="contact" class="section">
+
+<div class="container contact-grid">
+
+    <div class="contact-info">
+
+        <span class="section-label">KONTAKT</span>
+
+        <h2>Wir freuen uns auf deine Nachricht.</h2>
+
+        <p>
+            Hast du Fragen zu Blueli oder möchtest du als Organisation
+            mit uns zusammenarbeiten?
+        </p>
+
+        <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            info.warnify@blueli.de
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            63834 Sulzbach am Main
+        </div>
+
+    </div>
+
+   <div class="contact-form">
+
+<form id="contactForm">
+
+<input
+type="hidden"
+name="access_key"
+value="23f39698-4f07-43ba-8025-a423a69e48e6">
+
+<input
+type="hidden"
+name="subject"
+value="Neue Nachricht über die Blueli Website">
+
+<input
+type="hidden"
+name="from_name"
+value="Blueli Kontaktformular">
+
+<input
+type="checkbox"
+name="botcheck"
+class="hidden"
+style="display:none;">
+
+<input
+type="text"
+name="name"
+placeholder="Ihr Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Ihre E-Mail-Adresse"
+required>
+
+<textarea
+name="message"
+placeholder="Ihre Nachricht..."
+required></textarea>
+
+<label class="checkbox">
+
+<input
+type="checkbox"
+required>
+
+Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.
+
+</label>
+
+<button
+type="submit"
+class="button">
+
+<span id="buttonText">
+
+Nachricht senden
+
+</span>
+
+<span
+id="loading"
+style="display:none;">
+
+Wird gesendet...
+
+</span>
+
+</button>
+
+<div
+id="result">
+
+</div>
+
+</form>
+
+</div>
+
+    </div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+
+<div class="footer-logo">
+
+<img src="logo.png" alt="Blueli Logo">
+
+<h2>Blueli</h2>
+
+</div>
+
+<p>
+Warnung vor Einsatzfahrzeugen in Echtzeit.
+</p>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Navigation</h3>
+
+<ul>
+
+<li><a href="#features">Funktionen</a></li>
+
+<li><a href="#how">Ablauf</a></li>
+
+<li><a href="#faq">FAQ</a></li>
+
+<li><a href="#contact">Kontakt</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-column">
+
+<h3>Rechtliches</h3>
+
+<ul>
+
+<li><a href="impressum.html">Impressum</a></li>
+<li><a href="datenschutz.html">Datenschutz</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+© 2026 Blueli · Alle Rechte vorbehalten
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
