@@ -3004,7 +3004,700 @@ footer {
     }
 
 }
+/* ==========================================================
+   BLUELI-WARNIFY SMARTPHONE
+   FINAL OVERRIDE
+   Nur für die Smartphone-Vorschau im Hero
+   ========================================================== */
 
+
+/* ==========================================================
+   SMARTPHONE AUSSEN
+   ========================================================== */
+
+.hero-right .phone {
+    position: relative;
+
+    width: 310px !important;
+    height: 640px !important;
+
+    padding: 9px !important;
+
+    border-radius: 42px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #30343a 0%,
+            #0b0d10 35%,
+            #202328 70%,
+            #050607 100%
+        ) !important;
+
+    border: 0 !important;
+
+    box-shadow:
+        0 35px 80px rgba(0,0,0,.65),
+        0 0 0 2px #45484c,
+        inset 0 0 0 2px #080909 !important;
+
+    transform: none;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+
+    z-index: 2;
+}
+
+
+/* Alten blauen Rahmen entfernen */
+
+.hero-right .phone::before {
+    display: none !important;
+}
+
+.hero-right .phone::after {
+    display: none !important;
+}
+
+
+/* ==========================================================
+   PHONE SCREEN
+   ========================================================== */
+
+.hero-right .phone-screen {
+    position: relative;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    border-radius: 34px !important;
+
+    overflow: hidden !important;
+
+    background: #050505 !important;
+
+    color: #ffffff !important;
+
+    display: block !important;
+
+    text-align: initial !important;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.08) !important;
+}
+
+
+/* ==========================================================
+   STATUSLEISTE
+   ========================================================== */
+
+.hero-right .status-bar {
+    position: relative;
+
+    width: 100%;
+    height: 29px !important;
+
+    padding: 0 13px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    background: #19c900 !important;
+
+    color: #050505 !important;
+
+    font-size: 11px !important;
+    font-weight: 700 !important;
+
+    line-height: 1 !important;
+
+    z-index: 20;
+}
+
+.hero-right .status-icons {
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 6px !important;
+
+    color: #050505 !important;
+
+    font-size: 10px !important;
+}
+
+
+/* ==========================================================
+   APP-LEISTE
+   ========================================================== */
+
+.hero-right .appbar {
+    position: relative;
+
+    width: 100%;
+    height: 61px !important;
+
+    padding: 0 14px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    background: #19c900 !important;
+
+    color: #050505 !important;
+
+    font-weight: 700 !important;
+
+    border: 0 !important;
+
+    box-shadow: none !important;
+
+    z-index: 10;
+}
+
+
+.hero-right .app-title {
+    flex: 1;
+
+    text-align: center;
+
+    font-size: 16px !important;
+
+    font-weight: 700 !important;
+
+    color: #050505 !important;
+
+    white-space: nowrap;
+}
+
+
+.hero-right .app-action {
+    width: 28px !important;
+
+    min-width: 28px;
+
+    height: 100%;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    font-size: 18px !important;
+
+    color: #050505 !important;
+
+    background: transparent !important;
+}
+
+
+/* ==========================================================
+   APP-INHALT
+   ========================================================== */
+
+.hero-right .app-content {
+    position: absolute !important;
+
+    top: 90px !important;
+    bottom: 71px !important;
+
+    left: 0 !important;
+    right: 0 !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    overflow: hidden !important;
+
+    background: #050505 !important;
+
+    color: #ffffff !important;
+}
+
+
+/* ==========================================================
+   NEUTRALER ZUSTAND
+   ========================================================== */
+
+.hero-right .neutral-view {
+    width: 100%;
+    height: 100%;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    flex-direction: column !important;
+
+    gap: 13px !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    color: #c8c8c8 !important;
+
+    text-align: center !important;
+
+    font-size: 16px !important;
+
+    font-weight: 400 !important;
+
+    background: #050505 !important;
+}
+
+
+/* ==========================================================
+   ROTES NEUTRAL-ICON
+   ========================================================== */
+
+.hero-right .neutral-icon {
+    width: 86px !important;
+    height: 86px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 50% !important;
+
+    background: #651c1c !important;
+
+    color: #ffffff !important;
+
+    font-size: 42px !important;
+
+    line-height: 1 !important;
+
+    box-shadow:
+        0 0 30px rgba(255,0,0,.08) !important;
+}
+
+
+.hero-right .neutral-text {
+    font-size: 16px !important;
+
+    color: #c8c8c8 !important;
+
+    text-align: center !important;
+
+    line-height: 1.5 !important;
+}
+
+
+.hero-right .neutral-check {
+    font-size: 18px !important;
+
+    margin-left: 3px;
+}
+
+
+/* ==========================================================
+   ALARM VIEW
+   ========================================================== */
+
+.hero-right .alarm-view {
+    width: 100%;
+    height: 100%;
+
+    padding: 10px !important;
+
+    margin: 0 !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    scrollbar-width: none;
+
+    background: #050505 !important;
+
+    color: #ffffff !important;
+}
+
+
+.hero-right .alarm-view::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ==========================================================
+   ALARM-BENACHRICHTIGUNG
+   ========================================================== */
+
+.hero-right .alarm-notification {
+    width: calc(100% + 20px);
+
+    margin: -10px -10px 9px;
+
+    padding: 12px 12px 10px;
+
+    background: #f1f3f5 !important;
+
+    color: #202124 !important;
+
+    border-radius: 0 0 17px 17px !important;
+
+    box-shadow:
+        0 5px 14px rgba(0,0,0,.35) !important;
+
+    font-size: 11px !important;
+
+    line-height: 1.4 !important;
+
+    text-align: left !important;
+}
+
+
+/* ==========================================================
+   ALARM CARD
+   ========================================================== */
+
+.hero-right .alarm-card {
+    width: 100%;
+
+    padding: 12px !important;
+
+    margin: 0 0 9px !important;
+
+    border-radius: 10px !important;
+
+    background: #ffc8cc !important;
+
+    border: 0 !important;
+
+    color: #171717 !important;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.25) !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.4 !important;
+}
+
+
+/* ==========================================================
+   ALARM CARD HEADER
+   ========================================================== */
+
+.hero-right .alarm-card-header {
+    display: flex !important;
+
+    align-items: flex-start !important;
+
+    justify-content: space-between !important;
+
+    gap: 8px !important;
+
+    margin-bottom: 7px !important;
+}
+
+
+.hero-right .alarm-title {
+    flex: 1;
+
+    font-size: 13px !important;
+
+    font-weight: 700 !important;
+
+    line-height: 1.35 !important;
+
+    color: #171717 !important;
+}
+
+
+.hero-right .alarm-title strong {
+    font-size: 13px !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* ==========================================================
+   WARNDREIECK
+   ========================================================== */
+
+.hero-right .warning-icon {
+    flex-shrink: 0;
+
+    color: #e2222b !important;
+
+    font-size: 22px !important;
+
+    line-height: 1 !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* ==========================================================
+   ENTFERNUNG / COUNTDOWN
+   ========================================================== */
+
+.hero-right .alarm-card > div:not(.alarm-card-header):not(.alarm-countdown):not(.alarm-hint) {
+    font-size: 13px !important;
+
+    font-weight: 600 !important;
+
+    margin-bottom: 10px;
+}
+
+
+.hero-right .alarm-countdown {
+    margin-top: 4px !important;
+
+    margin-bottom: 11px !important;
+
+    font-size: 13px !important;
+
+    font-weight: 600 !important;
+
+    color: #171717 !important;
+}
+
+
+.hero-right .alarm-hint {
+    font-size: 10px !important;
+
+    line-height: 1.35 !important;
+
+    color: #343434 !important;
+
+    margin-top: 8px !important;
+}
+
+
+/* ==========================================================
+   FEUERWEHR LABEL
+   ========================================================== */
+
+.hero-right .vehicle-label {
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 5px !important;
+
+    margin: 7px 3px 5px !important;
+
+    padding: 0 !important;
+
+    color: #ff3030 !important;
+
+    font-size: 13px !important;
+
+    font-weight: 700 !important;
+
+    background: transparent !important;
+}
+
+
+.hero-right .vehicle-moving {
+    color: #39cf6a !important;
+
+    font-size: 11px !important;
+
+    font-weight: 600 !important;
+}
+
+
+/* ==========================================================
+   UNTERE NAVIGATION
+   ========================================================== */
+
+.hero-right .bottom-navigation {
+    position: absolute !important;
+
+    bottom: 0 !important;
+
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+
+    height: 71px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+
+    align-items: stretch !important;
+
+    justify-content: space-around !important;
+
+    background: #151515 !important;
+
+    border-top: 1px solid rgba(255,255,255,.05) !important;
+
+    box-shadow:
+        0 -8px 20px rgba(0,0,0,.3) !important;
+
+    z-index: 30;
+}
+
+
+.hero-right .bottom-navigation .nav-item {
+    flex: 1;
+
+    height: 71px;
+
+    padding: 0;
+
+    margin: 0;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    gap: 5px !important;
+
+    background: transparent !important;
+
+    border: 0 !important;
+
+    color: #bcbcbc !important;
+
+    font-size: 9px !important;
+
+    font-weight: 400 !important;
+
+    text-align: center !important;
+
+    cursor: default;
+
+    box-shadow: none !important;
+}
+
+
+.hero-right .bottom-navigation .nav-item.active {
+    color: #22d400 !important;
+}
+
+
+.hero-right .bottom-navigation .nav-icon {
+    font-size: 20px !important;
+
+    line-height: 1 !important;
+
+    color: inherit !important;
+}
+
+
+.hero-right .bottom-navigation .nav-item span {
+    font-size: 9px !important;
+
+    line-height: 1 !important;
+
+    color: inherit !important;
+}
+
+
+/* ==========================================================
+   HOME INDICATOR
+   ========================================================== */
+
+.hero-right .home-indicator {
+    position: absolute !important;
+
+    bottom: 4px !important;
+
+    left: 50% !important;
+
+    transform: translateX(-50%) !important;
+
+    width: 75px !important;
+
+    height: 4px !important;
+
+    border-radius: 5px !important;
+
+    background: #333333 !important;
+
+    z-index: 50 !important;
+}
+
+
+/* ==========================================================
+   ALARM VIEW SCROLLBAR
+   ========================================================== */
+
+.hero-right .alarm-view {
+    scrollbar-width: none !important;
+}
+
+.hero-right .alarm-view::-webkit-scrollbar {
+    width: 0 !important;
+    display: none !important;
+}
+
+
+/* ==========================================================
+   HERO RECHTS – POSITION
+   ========================================================== */
+
+.hero-right {
+    display: flex !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    min-width: 310px;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 1100px) {
+
+    .hero-right .phone {
+        width: 310px !important;
+        height: 640px !important;
+
+        margin-top: 40px !important;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .hero-right {
+        min-width: 0;
+
+        width: 100%;
+    }
+
+    .hero-right .phone {
+        width: 292px !important;
+        height: 604px !important;
+
+        margin: 30px auto 0 !important;
+    }
+
+}
 /* =======================================================
    ENDE STYLE.CSS
 ======================================================= */
