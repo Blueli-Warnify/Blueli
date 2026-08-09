@@ -953,6 +953,43 @@ Warnung vor Einsatzfahrzeugen in Echtzeit.
 </footer>
 
 <script src="script.js"></script>
+<script>
 
+function setPhoneMode(mode) {
+
+    const neutralView =
+        document.getElementById("neutralView");
+
+    const alarmView =
+        document.getElementById("alarmView");
+
+    const normalButton =
+        document.getElementById("normalModeButton");
+
+    const alarmButton =
+        document.getElementById("alarmModeButton");
+
+
+    if (mode === "alarm") {
+
+        neutralView.style.display = "none";
+        alarmView.style.display = "block";
+
+        normalButton.classList.remove("active");
+        alarmButton.classList.add("active");
+
+    } else {
+
+        neutralView.style.display = "flex";
+        alarmView.style.display = "none";
+
+        normalButton.classList.add("active");
+        alarmButton.classList.remove("active");
+
+    }
+
+}
+
+</script>
 </body>
 </html>
