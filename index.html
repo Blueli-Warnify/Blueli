@@ -953,14 +953,10 @@ Warnung vor Einsatzfahrzeugen in Echtzeit.
 
 <script src="script.js"></script>
 <script>
-
 function setPhoneMode(mode) {
 
-    const neutralView =
-        document.getElementById("neutralView");
-
-    const alarmView =
-        document.getElementById("alarmView");
+    const neutralView = document.getElementById("neutralView");
+    const alarmView = document.getElementById("alarmView");
 
     const normalButton =
         document.getElementById("normalModeButton");
@@ -971,24 +967,30 @@ function setPhoneMode(mode) {
 
     if (mode === "alarm") {
 
+        /* Normal komplett ausblenden */
         neutralView.style.display = "none";
+
+        /* Alarm anzeigen */
         alarmView.style.display = "block";
 
+        /* Button */
         normalButton.classList.remove("active");
         alarmButton.classList.add("active");
 
     } else {
 
-        neutralView.style.display = "flex";
+        /* Alarm komplett ausblenden */
         alarmView.style.display = "none";
 
-        normalButton.classList.add("active");
+        /* Normal anzeigen */
+        neutralView.style.display = "flex";
+
+        /* Button */
         alarmButton.classList.remove("active");
+        normalButton.classList.add("active");
 
     }
-
 }
-
 </script>
 </body>
 </html>
