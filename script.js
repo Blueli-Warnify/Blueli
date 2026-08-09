@@ -473,3 +473,63 @@ function floatPhone() {
 }
 
 floatPhone();
+/* ==========================================================
+   BLUELI SMARTPHONE – NORMAL / ALARM
+   ========================================================== */
+
+function setPhoneMode(mode) {
+
+    const neutralView =
+        document.getElementById("neutralView");
+
+    const alarmView =
+        document.getElementById("alarmView");
+
+    const normalButton =
+        document.getElementById("normalModeButton");
+
+    const alarmButton =
+        document.getElementById("alarmModeButton");
+
+
+    if (!neutralView || !alarmView) {
+        return;
+    }
+
+
+    if (mode === "normal") {
+
+        /* Normal anzeigen */
+
+        neutralView.style.display = "flex";
+
+        alarmView.style.display = "none";
+
+
+        /* Buttons */
+
+        normalButton.classList.add("active");
+
+        alarmButton.classList.remove("active");
+
+    }
+
+
+    if (mode === "alarm") {
+
+        /* Alarm anzeigen */
+
+        neutralView.style.display = "none";
+
+        alarmView.style.display = "block";
+
+
+        /* Buttons */
+
+        normalButton.classList.remove("active");
+
+        alarmButton.classList.add("active");
+
+    }
+
+}
