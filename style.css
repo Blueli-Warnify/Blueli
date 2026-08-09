@@ -3698,6 +3698,38 @@ footer {
     }
 
 }
+/* ==========================================================
+   BLUELI LOGO – SMARTPHONE VORSCHAU
+   Nur das Logo korrigieren
+   ========================================================== */
+
+.hero-right .phone .app-logo,
+.hero-right .phone-screen .app-logo,
+.hero-right .neutral-view .app-logo {
+    display: block !important;
+
+    width: 72px !important;
+    height: 72px !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+
+    margin: 0 auto !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    border: 0 !important;
+
+    box-shadow: none !important;
+
+    opacity: 1 !important;
+
+    filter: none !important;
+}
 /* =======================================================
    ENDE STYLE.CSS
 ======================================================= */
