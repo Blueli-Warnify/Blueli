@@ -3699,47 +3699,13 @@ footer {
 
 }
 /* ==========================================================
-   BLUELI LOGO – SMARTPHONE VORSCHAU
-   Nur das Logo korrigieren
-   ========================================================== */
-
-.hero-right .phone .app-logo,
-.hero-right .phone-screen .app-logo,
-.hero-right .neutral-view .app-logo {
-    display: block !important;
-
-    width: 72px !important;
-    height: 72px !important;
-
-    max-width: none !important;
-    max-height: none !important;
-
-    object-fit: contain !important;
-
-    margin: 0 auto !important;
-
-    padding: 0 !important;
-
-    background: transparent !important;
-
-    border: 0 !important;
-
-    box-shadow: none !important;
-
-    opacity: 1 !important;
-
-    filter: none !important;
-}
-/* ==========================================================
-   BLUELI SMARTPHONE
-   NORMAL / ALARM VORSCHAU
-   FINALER OVERRIDE
+   BLUELI-WARNIFY SMARTPHONE PREVIEW
+   Angepasst an das aktuelle index.html
    ========================================================== */
 
 
 /* ==========================================================
    HERO RECHTS
-   Smartphone + Umschalter untereinander
    ========================================================== */
 
 .hero-right {
@@ -3748,16 +3714,213 @@ footer {
     flex-direction: column !important;
 
     align-items: center !important;
+
     justify-content: center !important;
 
-    min-width: 310px !important;
+    min-width: 310px;
+}
+
+
+/* ==========================================================
+   SMARTPHONE
+   ========================================================== */
+
+.hero-right .phone {
+    position: relative !important;
+
+    width: 310px !important;
+    height: 640px !important;
+
+    padding: 9px !important;
+
+    border-radius: 42px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #353535 0%,
+            #090909 45%,
+            #292929 100%
+        ) !important;
+
+    border: 0 !important;
+
+    box-shadow:
+        0 45px 90px rgba(0,0,0,.65),
+        0 0 55px rgba(29,107,255,.18),
+        inset 0 0 0 2px #555 !important;
+
+    overflow: visible !important;
+
+    flex-shrink: 0 !important;
+
+    z-index: 2 !important;
+}
+
+
+/* Alte Effekte entfernen */
+
+.hero-right .phone::before,
+.hero-right .phone::after {
+    display: none !important;
+}
+
+
+/* ==========================================================
+   PHONE SCREEN
+   ========================================================== */
+
+.hero-right .phone-screen {
+    position: relative !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    border-radius: 34px !important;
+
+    background: #050505 !important;
+
+    color: #fff !important;
+
+    display: block !important;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.08) !important;
+}
+
+
+/* ==========================================================
+   STATUSLEISTE
+   ========================================================== */
+
+.hero-right .status-bar {
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+
+    height: 30px !important;
+
+    padding: 0 13px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: space-between !important;
+
+    background: #20c900 !important;
+
+    color: #050505 !important;
+
+    font-size: 10px !important;
+
+    font-weight: 700 !important;
+
+    line-height: 1 !important;
+
+    z-index: 50 !important;
+}
+
+
+.hero-right .status-icons {
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 6px !important;
+
+    color: #050505 !important;
+
+    font-size: 9px !important;
+}
+
+
+/* ==========================================================
+   APP-LEISTE
+   ========================================================== */
+
+.hero-right .appbar {
+    position: absolute !important;
+
+    top: 30px !important;
+
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+
+    height: 60px !important;
+
+    padding: 0 14px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: space-between !important;
+
+    background: #20c900 !important;
+
+    color: #050505 !important;
+
+    border: 0 !important;
+
+    box-shadow: none !important;
+
+    z-index: 40 !important;
+}
+
+
+.hero-right .app-title {
+    flex: 1 !important;
+
+    text-align: center !important;
+
+    font-size: 16px !important;
+
+    font-weight: 700 !important;
+
+    color: #050505 !important;
+
+    white-space: nowrap !important;
+}
+
+
+.hero-right .app-action {
+    width: 28px !important;
+
+    min-width: 28px !important;
+
+    height: 100% !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    font-size: 18px !important;
+
+    color: #050505 !important;
+
+    background: transparent !important;
 }
 
 
 /* ==========================================================
    APP-INHALT
-   Exakte Position zwischen grüner Appbar
-   und unterer Navigation
+   30px Statusleiste
+   + 60px Appbar
+   = 90px
    ========================================================== */
 
 .hero-right .app-content {
@@ -3771,19 +3934,23 @@ footer {
     bottom: 71px !important;
 
     width: auto !important;
+
     height: auto !important;
 
-    padding: 0 !important;
     margin: 0 !important;
+
+    padding: 0 !important;
 
     overflow: hidden !important;
 
     background: #050505 !important;
+
+    color: #fff !important;
 }
 
 
 /* ==========================================================
-   NORMALANSICHT
+   NORMALMODUS
    ========================================================== */
 
 .hero-right .neutral-view {
@@ -3792,6 +3959,7 @@ footer {
     inset: 0 !important;
 
     width: 100% !important;
+
     height: 100% !important;
 
     display: flex !important;
@@ -3799,14 +3967,12 @@ footer {
     flex-direction: column !important;
 
     align-items: center !important;
+
     justify-content: center !important;
 
     gap: 14px !important;
 
     padding: 20px !important;
-    margin: 0 !important;
-
-    overflow: hidden !important;
 
     background: #050505 !important;
 
@@ -3814,44 +3980,43 @@ footer {
 
     text-align: center !important;
 
-    z-index: 1 !important;
+    overflow: hidden !important;
 }
 
 
 /* ==========================================================
    LOGO
-   wirklich im HINTERGRUND
    ========================================================== */
 
 .hero-right .neutral-logo {
     position: absolute !important;
 
-    left: 50% !important;
     top: 50% !important;
 
-    width: 210px !important;
-    height: 210px !important;
+    left: 50% !important;
 
-    transform: translate(-50%, -50%) !important;
+    transform: translate(-50%, -58%) !important;
+
+    width: 190px !important;
+
+    height: 190px !important;
 
     object-fit: contain !important;
 
-    display: block !important;
+    opacity: .13 !important;
 
-    opacity: 0.08 !important;
-
-    filter: grayscale(100%) brightness(2.2) !important;
+    filter:
+        grayscale(15%)
+        brightness(1.3) !important;
 
     z-index: 0 !important;
 
     pointer-events: none !important;
-
-    user-select: none !important;
 }
 
 
 /* ==========================================================
-   NORMAL-ICON
+   GLOCKE
    ========================================================== */
 
 .hero-right .neutral-icon {
@@ -3859,31 +4024,38 @@ footer {
 
     z-index: 2 !important;
 
-    width: 86px !important;
-    height: 86px !important;
+    width: 78px !important;
+
+    height: 78px !important;
 
     display: flex !important;
 
     align-items: center !important;
+
     justify-content: center !important;
 
     border-radius: 50% !important;
 
-    background: #651c1c !important;
+    background:
+        radial-gradient(
+            circle,
+            #7a2424,
+            #551818
+        ) !important;
 
-    color: #ffffff !important;
+    color: #fff !important;
 
-    font-size: 42px !important;
+    font-size: 38px !important;
 
     line-height: 1 !important;
 
     box-shadow:
-        0 0 30px rgba(255,0,0,.08) !important;
+        0 0 30px rgba(255,0,0,.1) !important;
 }
 
 
 /* ==========================================================
-   NORMAL-TEXT
+   NORMAL TEXT
    ========================================================== */
 
 .hero-right .neutral-text {
@@ -3894,21 +4066,25 @@ footer {
     display: flex !important;
 
     align-items: center !important;
+
     justify-content: center !important;
 
-    gap: 6px !important;
+    gap: 7px !important;
 
-    font-size: 16px !important;
+    font-size: 15px !important;
 
-    line-height: 1.5 !important;
+    font-weight: 500 !important;
+
+    line-height: 1.4 !important;
 
     color: #c8c8c8 !important;
-
-    text-align: center !important;
 }
 
+
 .hero-right .neutral-check {
-    font-size: 17px !important;
+    font-size: 15px !important;
+
+    color: #20c900 !important;
 }
 
 
@@ -3922,66 +4098,74 @@ footer {
     inset: 0 !important;
 
     width: 100% !important;
+
     height: 100% !important;
 
-    box-sizing: border-box !important;
-
-    padding: 10px !important;
+    padding: 0 10px 12px !important;
 
     margin: 0 !important;
 
     overflow-y: auto !important;
+
     overflow-x: hidden !important;
 
     background: #050505 !important;
 
-    color: #ffffff !important;
+    color: #fff !important;
 
     scrollbar-width: none !important;
-
-    z-index: 5 !important;
 }
+
 
 .hero-right .alarm-view::-webkit-scrollbar {
     display: none !important;
 
     width: 0 !important;
+
     height: 0 !important;
 }
 
 
 /* ==========================================================
-   ALARM-MELDUNG OBEN
-   Nicht mehr abschneiden
+   ALARM-BENACHRICHTIGUNG
    ========================================================== */
 
 .hero-right .alarm-notification {
-    position: relative !important;
+    width: calc(100% + 20px) !important;
 
-    width: 100% !important;
+    margin: 0 -10px 10px !important;
 
-    box-sizing: border-box !important;
+    min-height: 55px !important;
 
-    margin: 0 0 10px 0 !important;
+    padding: 12px !important;
 
-    padding: 11px 12px !important;
+    display: flex !important;
 
-    background: #f1f3f5 !important;
+    align-items: center !important;
 
-    color: #202124 !important;
+    gap: 10px !important;
 
-    border-radius: 10px !important;
+    background: #e8e9f0 !important;
+
+    color: #202020 !important;
+
+    border-radius: 0 0 15px 15px !important;
 
     box-shadow:
-        0 4px 12px rgba(0,0,0,.30) !important;
+        0 4px 12px rgba(0,0,0,.3) !important;
 
-    font-size: 11px !important;
+    font-size: 10px !important;
 
-    line-height: 1.4 !important;
+    line-height: 1.35 !important;
 
     text-align: left !important;
+}
 
-    z-index: 2 !important;
+
+.hero-right .alarm-notification strong {
+    display: block !important;
+
+    font-size: 11px !important;
 }
 
 
@@ -3990,35 +4174,29 @@ footer {
    ========================================================== */
 
 .hero-right .alarm-card {
-    position: relative !important;
-
     width: 100% !important;
-
-    box-sizing: border-box !important;
 
     padding: 12px !important;
 
-    margin: 0 0 9px 0 !important;
+    margin: 0 0 8px !important;
 
     border-radius: 10px !important;
 
-    background: #ffc8cc !important;
-
-    border: 0 !important;
+    background: #ffcbd0 !important;
 
     color: #171717 !important;
+
+    border: 0 !important;
 
     box-shadow:
         0 3px 10px rgba(0,0,0,.25) !important;
 
-    font-size: 13px !important;
-
-    line-height: 1.4 !important;
+    font-size: 11px !important;
 }
 
 
 /* ==========================================================
-   ALARM HEADER
+   ALARM CARD HEADER
    ========================================================== */
 
 .hero-right .alarm-card-header {
@@ -4030,23 +4208,31 @@ footer {
 
     gap: 8px !important;
 
-    margin-bottom: 7px !important;
+    margin-bottom: 6px !important;
 }
+
 
 .hero-right .alarm-title {
     flex: 1 !important;
 
-    font-size: 13px !important;
+    font-size: 11px !important;
 
     font-weight: 700 !important;
 
-    line-height: 1.35 !important;
+    line-height: 1.3 !important;
 
     color: #171717 !important;
 }
 
+
 .hero-right .alarm-title strong {
-    font-size: 13px !important;
+    display: inline-block !important;
+
+    margin-top: 2px !important;
+
+    color: #d62d35 !important;
+
+    font-size: 17px !important;
 
     font-weight: 700 !important;
 }
@@ -4059,13 +4245,11 @@ footer {
 .hero-right .warning-icon {
     flex-shrink: 0 !important;
 
-    color: #e2222b !important;
+    color: #df252b !important;
 
     font-size: 22px !important;
 
     line-height: 1 !important;
-
-    font-weight: 700 !important;
 }
 
 
@@ -4074,13 +4258,11 @@ footer {
    ========================================================== */
 
 .hero-right .alarm-countdown {
-    margin-top: 4px !important;
+    margin-top: 11px !important;
 
-    margin-bottom: 10px !important;
+    font-size: 11px !important;
 
-    font-size: 13px !important;
-
-    font-weight: 600 !important;
+    font-weight: 700 !important;
 
     color: #171717 !important;
 }
@@ -4091,18 +4273,18 @@ footer {
    ========================================================== */
 
 .hero-right .alarm-hint {
-    margin-top: 8px !important;
+    margin-top: 9px !important;
 
-    font-size: 10px !important;
+    font-size: 8.5px !important;
 
-    line-height: 1.35 !important;
+    line-height: 1.45 !important;
 
     color: #343434 !important;
 }
 
 
 /* ==========================================================
-   FEUERWEHR
+   FAHRZEUG
    ========================================================== */
 
 .hero-right .vehicle-label {
@@ -4110,117 +4292,200 @@ footer {
 
     align-items: center !important;
 
-    gap: 5px !important;
+    justify-content: space-between !important;
 
-    margin: 7px 3px 5px !important;
+    padding: 4px !important;
 
-    padding: 0 !important;
+    margin: 0 !important;
 
-    color: #ff3030 !important;
-
-    font-size: 13px !important;
-
-    font-weight: 700 !important;
-
-    background: transparent !important;
-}
-
-.hero-right .vehicle-moving {
-    color: #39cf6a !important;
+    color: #ff4b52 !important;
 
     font-size: 11px !important;
+
+    font-weight: 700 !important;
+}
+
+
+.hero-right .vehicle-moving {
+    color: #38d36c !important;
+
+    font-size: 9px !important;
 
     font-weight: 600 !important;
 }
 
 
 /* ==========================================================
-   UMSCHALTER UNTER DEM SMARTPHONE
+   UNTERE NAVIGATION
+   ========================================================== */
+
+.hero-right .bottom-navigation {
+    position: absolute !important;
+
+    left: 0 !important;
+
+    right: 0 !important;
+
+    bottom: 0 !important;
+
+    width: 100% !important;
+
+    height: 71px !important;
+
+    display: flex !important;
+
+    background: #181818 !important;
+
+    border-top: 1px solid #242424 !important;
+
+    z-index: 30 !important;
+}
+
+
+.hero-right .nav-item {
+    width: 33.333% !important;
+
+    height: 71px !important;
+
+    border: 0 !important;
+
+    background: none !important;
+
+    color: #aaa !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    justify-content: center !important;
+
+    align-items: center !important;
+
+    gap: 4px !important;
+
+    cursor: default !important;
+
+    font-size: 8px !important;
+}
+
+
+.hero-right .nav-item.active {
+    color: #31d900 !important;
+}
+
+
+.hero-right .nav-icon {
+    font-size: 18px !important;
+
+    line-height: 1 !important;
+
+    color: inherit !important;
+}
+
+
+.hero-right .nav-item span {
+    font-size: 8px !important;
+
+    color: inherit !important;
+}
+
+
+/* ==========================================================
+   HOME INDICATOR
+   ========================================================== */
+
+.hero-right .home-indicator {
+    position: absolute !important;
+
+    bottom: 4px !important;
+
+    left: 50% !important;
+
+    transform: translateX(-50%) !important;
+
+    width: 75px !important;
+
+    height: 3px !important;
+
+    border-radius: 99px !important;
+
+    background: #eee !important;
+
+    z-index: 50 !important;
+}
+
+
+/* ==========================================================
+   NORMAL / ALARM SCHALTER
    ========================================================== */
 
 .hero-right .phone-mode-switch {
     display: flex !important;
 
-    align-items: center !important;
     justify-content: center !important;
 
-    gap: 8px !important;
+    align-items: center !important;
+
+    gap: 10px !important;
 
     margin-top: 18px !important;
-
-    padding: 5px !important;
-
-    border-radius: 14px !important;
-
-    background: rgba(20,20,20,.95) !important;
-
-    border: 1px solid rgba(255,255,255,.08) !important;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.35) !important;
-
-    z-index: 100 !important;
 }
 
 
-/* ==========================================================
-   UMSCHALTER BUTTONS
-   ========================================================== */
-
 .hero-right .phone-mode-button {
-    min-width: 90px !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
 
-    height: 36px !important;
+    background: rgba(255,255,255,.06) !important;
 
-    padding: 0 16px !important;
+    color: #aaa !important;
 
-    border: 0 !important;
+    padding: 9px 20px !important;
 
-    border-radius: 10px !important;
+    border-radius: 999px !important;
 
-    background: transparent !important;
-
-    color: #999999 !important;
-
-    font-family: inherit !important;
+    cursor: pointer !important;
 
     font-size: 12px !important;
 
-    font-weight: 600 !important;
-
-    cursor: pointer !important;
+    font-weight: 700 !important;
 
     transition:
         background .2s ease,
         color .2s ease,
-        transform .2s ease !important;
+        border-color .2s ease !important;
 }
 
-
-/* Hover */
 
 .hero-right .phone-mode-button:hover {
-    background: rgba(255,255,255,.08) !important;
+    border-color: #20c900 !important;
 
-    color: #ffffff !important;
+    color: #fff !important;
 }
 
 
-/* Aktiv */
-
 .hero-right .phone-mode-button.active {
-    background: #19c900 !important;
+    background: #20c900 !important;
+
+    border-color: #20c900 !important;
 
     color: #050505 !important;
-
-    box-shadow:
-        0 4px 12px rgba(25,201,0,.25) !important;
 }
 
 
 /* ==========================================================
-   MOBILE
+   RESPONSIVE
    ========================================================== */
+
+@media (max-width: 1100px) {
+
+    .hero-right .phone {
+        width: 310px !important;
+
+        height: 640px !important;
+    }
+
+}
+
 
 @media (max-width: 650px) {
 
@@ -4230,21 +4495,16 @@ footer {
         min-width: 0 !important;
     }
 
-    .hero-right .phone-mode-switch {
-        margin-top: 15px !important;
-    }
+    .hero-right .phone {
+        width: 292px !important;
 
-    .hero-right .phone-mode-button {
-        min-width: 82px !important;
-
-        height: 34px !important;
-
-        font-size: 11px !important;
+        height: 604px !important;
     }
 
     .hero-right .neutral-logo {
-        width: 180px !important;
-        height: 180px !important;
+        width: 175px !important;
+
+        height: 175px !important;
     }
 
 }
