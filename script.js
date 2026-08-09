@@ -533,3 +533,32 @@ function setPhoneMode(mode) {
     }
 
 }
+function setPhoneMode(mode) {
+
+    const phone = document.querySelector('.hero-right');
+
+    const normalButton = document.getElementById('normalModeButton');
+    const alarmButton = document.getElementById('alarmModeButton');
+
+    if (!phone) return;
+
+    if (mode === 'alarm') {
+
+        phone.classList.remove('phone-normal');
+        phone.classList.add('phone-alarm');
+
+        normalButton.classList.remove('active');
+        alarmButton.classList.add('active');
+
+    } else {
+
+        phone.classList.remove('phone-alarm');
+        phone.classList.add('phone-normal');
+
+        alarmButton.classList.remove('active');
+        normalButton.classList.add('active');
+    }
+}
+document.addEventListener('DOMContentLoaded', function () {
+    setPhoneMode('normal');
+});
