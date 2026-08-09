@@ -143,21 +143,24 @@
             <div class="app-content">
 
                 <!-- NEUTRAL -->
-                <div
-                    class="neutral-view"
-                    id="neutralView"
-                >
+                <div class="neutral-view" id="neutralView">
 
-                    <div class="neutral-icon">
-                        🔕
-                    </div>
+    <img
+        src="logo.png"
+        class="neutral-logo"
+        alt="Blueli"
+    >
 
-                    <div class="neutral-text">
-                        Keine aktiven Alarme
-                        <span class="neutral-check">✅</span>
-                    </div>
+    <div class="neutral-icon">
+        🔕
+    </div>
 
-                </div>
+    <div class="neutral-text">
+        Keine aktiven Alarme
+        <span class="neutral-check">✅</span>
+    </div>
+
+</div>
 
 
                 <!-- ALARM -->
@@ -260,6 +263,25 @@
         </div>
 
     </div>
+
+</div>
+    <div class="phone-mode-switch">
+
+    <button
+        class="phone-mode-button active"
+        id="normalModeButton"
+        onclick="setPhoneMode('normal')"
+    >
+        Normal
+    </button>
+
+    <button
+        class="phone-mode-button"
+        id="alarmModeButton"
+        onclick="setPhoneMode('alarm')"
+    >
+        Alarm
+    </button>
 
 </div>
 
