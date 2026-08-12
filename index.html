@@ -106,25 +106,19 @@
 
     </div>
 
- <div class="hero-right">
-
-    <!-- ==========================================
-         SMARTPHONE
-         ========================================== -->
+  <div class="hero-right">
 
     <div class="phone">
 
         <div class="phone-screen">
 
-            <!-- ======================================
+            <!-- ==========================================
                  STATUSLEISTE
-                 ====================================== -->
+                 ========================================== -->
 
             <div class="status-bar">
 
-                <span id="phoneTime">
-                    20:36
-                </span>
+                <span id="phoneTime">20:08</span>
 
                 <div class="status-icons">
                     <span>●</span>
@@ -135,9 +129,9 @@
             </div>
 
 
-            <!-- ======================================
+            <!-- ==========================================
                  APP-LEISTE
-                 ====================================== -->
+                 ========================================== -->
 
             <div class="appbar">
 
@@ -156,23 +150,23 @@
             </div>
 
 
-            <!-- ======================================
+            <!-- ==========================================
                  APP-INHALT
-                 ====================================== -->
+                 ========================================== -->
 
             <div class="app-content">
 
 
-                <!-- ==================================
+                <!-- ======================================
                      NORMALMODUS
-                     ================================== -->
+                     ====================================== -->
 
                 <div
                     class="neutral-view"
                     id="neutralView"
                 >
 
-                    <!-- Logo nur als dezenter Hintergrund -->
+                    <!-- Logo als dezenter Hintergrund -->
 
                     <img
                         src="logo.png"
@@ -180,11 +174,13 @@
                         alt="Blueli"
                     >
 
+
                     <!-- Glocke -->
 
                     <div class="neutral-icon">
                         🔕
                     </div>
+
 
                     <!-- Text -->
 
@@ -203,135 +199,128 @@
                 </div>
 
 
-                <!-- ==================================
+                <!-- ======================================
                      ALARMMODUS
-                     ================================== -->
+                     ====================================== -->
 
                 <div
                     class="alarm-view"
                     id="alarmView"
+                    style="display:none;"
                 >
 
 
-                    <!-- ==================================
-                         RETTUNGSWAGEN
-                         ================================== -->
+                    <!-- Alarm-Benachrichtigung -->
 
-                    <div class="vehicle-section">
+                    <div class="alarm-notification">
 
-                        <div class="vehicle-label">
-
-                            <div class="vehicle-name">
-                                🚑 Rettungswagen
-                            </div>
-
-                            <div class="vehicle-moving">
-                                ↔ entfernt sich
-                            </div>
-
+                        <div>
+                            🚨
                         </div>
 
+                        <div>
 
-                        <div class="alarm-card">
+                            <strong>
+                                Alarm ausgelöst!
+                            </strong>
 
-                            <div class="alarm-card-header">
-
-                                <div class="alarm-title">
-
-                                    Abstand zu 🚑 Rettungswagen:
-
-                                    <br>
-
-                                    <strong>
-                                        465 Meter
-                                    </strong>
-
-                                </div>
-
-                                <div class="warning-icon">
-                                    ⚠
-                                </div>
-
-                            </div>
-
-
-                            <div class="alarm-countdown">
-                                Alarm endet in 9 s
-                            </div>
-
-
-                            <div class="alarm-hint">
-
-                                ⚠️ Bitte machen Sie
-                                Einsatzfahrzeugen zügig Platz.
-                                Beachten Sie dabei stets die StVO.
-
-                            </div>
+                            <span>
+                                Jetzt
+                            </span>
 
                         </div>
 
                     </div>
 
 
-                    <!-- ==================================
-                         FEUERWEHR
-                         ================================== -->
+                    <!-- Rettungswagen -->
 
-                    <div class="vehicle-section">
+                    <div class="alarm-card">
 
-                        <div class="vehicle-label">
+                        <div class="alarm-card-header">
 
-                            <div class="vehicle-name">
-                                🚒 Feuerwehr
+                            <div class="alarm-title">
+
+                                Abstand zu
+                                🚑 Rettungswagen:
+
+                                <br>
+
+                                <strong>
+                                    465 Meter
+                                </strong>
+
                             </div>
 
-                            <div class="vehicle-moving">
-                                ↔ entfernt sich
+                            <div class="warning-icon">
+                                ⚠
                             </div>
 
                         </div>
 
 
-                        <div class="alarm-card">
-
-                            <div class="alarm-card-header">
-
-                                <div class="alarm-title">
-
-                                    Abstand zu 🚒 Feuerwehr:
-
-                                    <br>
-
-                                    <strong>
-                                        485 Meter
-                                    </strong>
-
-                                </div>
-
-                                <div class="warning-icon">
-                                    ⚠
-                                </div>
-
-                            </div>
+                        <div class="alarm-countdown">
+                            Alarm endet in 9 s
+                        </div>
 
 
-                            <div class="alarm-countdown">
-                                Alarm endet in 13 s
-                            </div>
+                        <div class="alarm-hint">
 
-
-                            <div class="alarm-hint">
-
-                                ⚠️ Bitte machen Sie
-                                Einsatzfahrzeugen zügig Platz.
-                                Beachten Sie dabei stets die StVO.
-
-                            </div>
+                            ⚠️ Bitte machen Sie
+                            Einsatzfahrzeugen zügig Platz.
+                            Beachten Sie dabei stets die StVO.
 
                         </div>
 
                     </div>
 
+
+                    <!-- Feuerwehr Überschrift -->
+
+                    <div class="vehicle-label">
+
+                        <span>
+                            🚒 Feuerwehr
+                        </span>
+
+                        <span class="vehicle-moving">
+                            ↔ entfernt sich
+                        </span>
+
+                    </div>
+
+
+                    <!-- Feuerwehr -->
+
+                    <div class="alarm-card">
+
+                        <div class="alarm-card-header">
+
+                            <div class="alarm-title">
+
+                                Abstand zu
+                                🚒 Feuerwehr:
+
+                                <br>
+
+                                <strong>
+                                    475 Meter
+                                </strong>
+
+                            </div>
+
+                            <div class="warning-icon">
+                                ⚠
+                            </div>
+
+                        </div>
+
+
+                        <div class="alarm-countdown">
+                            Alarm endet in 17 s
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -392,37 +381,37 @@
         </div>
 
 
+        <!-- ==========================================
+             NORMAL / ALARM SCHALTER
+             ========================================== -->
+
+        <div class="phone-mode-switch">
+
+            <button
+                type="button"
+                class="phone-mode-button active"
+                id="normalModeButton"
+                onclick="setPhoneMode('normal')"
+            >
+                Normal
+            </button>
+
+            <button
+                type="button"
+                class="phone-mode-button"
+                id="alarmModeButton"
+                onclick="setPhoneMode('alarm')"
+            >
+                Alarm
+            </button>
+
+        </div>
+
     </div>
-
-
-    <!-- ==========================================
-         NORMAL / ALARM SCHALTER
-         ========================================== -->
-
-    <div class="phone-mode-switch">
-
-        <button
-            type="button"
-            class="phone-mode-button active"
-            id="normalModeButton"
-            onclick="setPhoneMode('normal')"
-        >
-            Normal
-        </button>
-
-        <button
-            type="button"
-            class="phone-mode-button"
-            id="alarmModeButton"
-            onclick="setPhoneMode('alarm')"
-        >
-            Alarm
-        </button>
-
-    </div>
-
 
 </div>
+   
+
 </header>
 <!-- ===========================
      FEATURES
