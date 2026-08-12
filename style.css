@@ -4602,7 +4602,640 @@ footer {
 .hero-right.phone-normal .alarm-view {
     display: none !important;
 }
+/* ==========================================================
+   BLUELI SMARTPHONE – FINALER OVERRIDE
+   Normal / Alarm + Fahrzeugbereiche
+   ========================================================== */
 
+/* ----------------------------------------------------------
+   HERO RECHTS
+   ---------------------------------------------------------- */
+
+.hero-right {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 310px;
+}
+
+
+/* ----------------------------------------------------------
+   SMARTPHONE
+   ---------------------------------------------------------- */
+
+.hero-right .phone {
+    position: relative !important;
+
+    width: 310px !important;
+    height: 640px !important;
+
+    padding: 9px !important;
+
+    border-radius: 42px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #30343a 0%,
+            #0b0d10 35%,
+            #202328 70%,
+            #050607 100%
+        ) !important;
+
+    border: 0 !important;
+
+    box-shadow:
+        0 35px 80px rgba(0,0,0,.65),
+        0 0 0 2px #45484c,
+        inset 0 0 0 2px #080909 !important;
+
+    overflow: hidden !important;
+}
+
+
+/* alte Rahmen entfernen */
+
+.hero-right .phone::before,
+.hero-right .phone::after {
+    display: none !important;
+}
+
+
+/* ----------------------------------------------------------
+   SCREEN
+   ---------------------------------------------------------- */
+
+.hero-right .phone-screen {
+    position: relative !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border-radius: 34px !important;
+
+    overflow: hidden !important;
+
+    background: #050505 !important;
+    color: #fff !important;
+}
+
+
+/* ----------------------------------------------------------
+   STATUSLEISTE
+   ---------------------------------------------------------- */
+
+.hero-right .status-bar {
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+    height: 29px !important;
+
+    padding: 0 13px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    background: #19c900 !important;
+    color: #050505 !important;
+
+    font-size: 11px !important;
+    font-weight: 700 !important;
+
+    z-index: 50 !important;
+}
+
+.hero-right .status-icons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+
+    color: #050505 !important;
+}
+
+
+/* ----------------------------------------------------------
+   APPBAR
+   ---------------------------------------------------------- */
+
+.hero-right .appbar {
+    position: absolute !important;
+
+    top: 29px !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+    height: 61px !important;
+
+    padding: 0 14px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    background: #19c900 !important;
+
+    color: #050505 !important;
+
+    border: 0 !important;
+    box-shadow: none !important;
+
+    z-index: 40 !important;
+}
+
+.hero-right .app-title {
+    flex: 1 !important;
+
+    text-align: center !important;
+
+    font-size: 16px !important;
+    font-weight: 700 !important;
+
+    color: #050505 !important;
+}
+
+.hero-right .app-action {
+    width: 28px !important;
+    min-width: 28px !important;
+    height: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    color: #050505 !important;
+
+    font-size: 18px !important;
+}
+
+
+/* ----------------------------------------------------------
+   APP-INHALT
+   ---------------------------------------------------------- */
+
+.hero-right .app-content {
+    position: absolute !important;
+
+    top: 90px !important;
+    bottom: 71px !important;
+
+    left: 0 !important;
+    right: 0 !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    overflow: hidden !important;
+
+    background: #050505 !important;
+}
+
+
+/* ==========================================================
+   NORMALMODUS
+   ========================================================== */
+
+.hero-right .neutral-view {
+    position: relative !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 15px !important;
+
+    background: #050505 !important;
+
+    color: #c8c8c8 !important;
+
+    overflow: hidden !important;
+}
+
+
+/* ----------------------------------------------------------
+   LOGO ALS DEZENTER HINTERGRUND
+   ---------------------------------------------------------- */
+
+.hero-right .neutral-logo {
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 50% !important;
+
+    transform: translate(-50%, -58%) !important;
+
+    width: 175px !important;
+    height: 175px !important;
+
+    object-fit: contain !important;
+
+    opacity: .12 !important;
+
+    z-index: 0 !important;
+
+    pointer-events: none !important;
+
+    filter: grayscale(100%) brightness(1.5) !important;
+}
+
+
+/* Text über Logo */
+
+.hero-right .neutral-text {
+    position: relative !important;
+
+    z-index: 2 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 7px !important;
+
+    font-size: 16px !important;
+
+    color: #c8c8c8 !important;
+
+    text-align: center !important;
+}
+
+.hero-right .neutral-check {
+    color: #19c900 !important;
+}
+
+
+/* ==========================================================
+   ALARMMODUS
+   ========================================================== */
+
+.hero-right .alarm-view {
+    position: relative !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    padding: 8px 10px 15px !important;
+
+    margin: 0 !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    background: #050505 !important;
+
+    color: #fff !important;
+
+    scrollbar-width: none !important;
+}
+
+.hero-right .alarm-view::-webkit-scrollbar {
+    display: none !important;
+}
+
+
+/* ----------------------------------------------------------
+   FAHRZEUG-BEREICH
+   ---------------------------------------------------------- */
+
+.hero-right .vehicle-section {
+    width: 100% !important;
+
+    margin: 0 0 8px !important;
+}
+
+
+/* ----------------------------------------------------------
+   FAHRZEUG ÜBERSCHRIFT
+   ---------------------------------------------------------- */
+
+.hero-right .vehicle-label {
+    width: 100% !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+
+    gap: 1px !important;
+
+    margin: 0 4px 5px !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    color: #ff3030 !important;
+
+    font-size: 13px !important;
+
+    font-weight: 700 !important;
+
+    line-height: 1.15 !important;
+}
+
+.hero-right .vehicle-name {
+    color: #ff3030 !important;
+
+    font-size: 13px !important;
+
+    font-weight: 700 !important;
+}
+
+.hero-right .vehicle-moving {
+    color: #39cf6a !important;
+
+    font-size: 10px !important;
+
+    font-weight: 600 !important;
+}
+
+
+/* ==========================================================
+   ALARM KARTE
+   ========================================================== */
+
+.hero-right .alarm-card {
+    width: 100% !important;
+
+    padding: 11px !important;
+
+    margin: 0 0 8px !important;
+
+    border-radius: 10px !important;
+
+    background: #ffc8cc !important;
+
+    border: 0 !important;
+
+    color: #171717 !important;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.25) !important;
+
+    font-size: 12px !important;
+
+    line-height: 1.35 !important;
+}
+
+
+/* Kopf */
+
+.hero-right .alarm-card-header {
+    display: flex !important;
+
+    align-items: flex-start !important;
+
+    justify-content: space-between !important;
+
+    gap: 8px !important;
+
+    margin-bottom: 5px !important;
+}
+
+.hero-right .alarm-title {
+    flex: 1 !important;
+
+    font-size: 12px !important;
+
+    font-weight: 700 !important;
+
+    line-height: 1.3 !important;
+
+    color: #171717 !important;
+}
+
+.hero-right .alarm-title strong {
+    font-size: 13px !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* Warnsymbol */
+
+.hero-right .warning-icon {
+    flex-shrink: 0 !important;
+
+    color: #e2222b !important;
+
+    font-size: 22px !important;
+
+    line-height: 1 !important;
+}
+
+
+/* Countdown */
+
+.hero-right .alarm-countdown {
+    margin-top: 7px !important;
+
+    margin-bottom: 8px !important;
+
+    font-size: 12px !important;
+
+    font-weight: 700 !important;
+
+    color: #171717 !important;
+}
+
+
+/* Hinweis */
+
+.hero-right .alarm-hint {
+    margin-top: 7px !important;
+
+    font-size: 9px !important;
+
+    line-height: 1.35 !important;
+
+    color: #343434 !important;
+}
+
+
+/* ==========================================================
+   UNTERE NAVIGATION
+   ========================================================== */
+
+.hero-right .bottom-navigation {
+    position: absolute !important;
+
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+
+    width: 100% !important;
+    height: 71px !important;
+
+    display: flex !important;
+
+    background: #151515 !important;
+
+    border-top: 1px solid rgba(255,255,255,.05) !important;
+
+    z-index: 30 !important;
+}
+
+.hero-right .bottom-navigation .nav-item {
+    flex: 1 !important;
+
+    height: 71px !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 5px !important;
+
+    background: transparent !important;
+
+    border: 0 !important;
+
+    color: #bcbcbc !important;
+
+    font-size: 9px !important;
+}
+
+.hero-right .bottom-navigation .nav-item.active {
+    color: #22d400 !important;
+}
+
+.hero-right .bottom-navigation .nav-icon {
+    font-size: 20px !important;
+}
+
+.hero-right .bottom-navigation .nav-item span {
+    font-size: 9px !important;
+}
+
+
+/* ==========================================================
+   HOME INDICATOR
+   ========================================================== */
+
+.hero-right .home-indicator {
+    position: absolute !important;
+
+    bottom: 4px !important;
+    left: 50% !important;
+
+    transform: translateX(-50%) !important;
+
+    width: 75px !important;
+    height: 4px !important;
+
+    border-radius: 5px !important;
+
+    background: #333 !important;
+
+    z-index: 50 !important;
+}
+
+
+/* ==========================================================
+   NORMAL / ALARM SCHALTER
+   ========================================================== */
+
+.phone-mode-switch {
+    display: flex !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    gap: 8px !important;
+
+    margin-top: 18px !important;
+
+    padding: 5px !important;
+
+    background: rgba(255,255,255,.07) !important;
+
+    border: 1px solid rgba(255,255,255,.12) !important;
+
+    border-radius: 999px !important;
+
+    width: max-content !important;
+}
+
+.phone-mode-button {
+    border: 0 !important;
+
+    background: transparent !important;
+
+    color: #9daabd !important;
+
+    padding: 9px 22px !important;
+
+    border-radius: 999px !important;
+
+    font-size: 13px !important;
+
+    font-weight: 700 !important;
+
+    cursor: pointer !important;
+
+    transition: .2s ease !important;
+}
+
+.phone-mode-button:hover {
+    color: #fff !important;
+}
+
+.phone-mode-button.active {
+    background: linear-gradient(
+        135deg,
+        #1d6bff,
+        #00c8ff
+    ) !important;
+
+    color: #fff !important;
+
+    box-shadow: 0 4px 15px rgba(0,150,255,.25) !important;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 650px) {
+
+    .hero-right {
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+
+    .hero-right .phone {
+        width: 292px !important;
+        height: 604px !important;
+    }
+
+    .phone-mode-switch {
+        margin-top: 15px !important;
+    }
+}
 /* =======================================================
    ENDE STYLE.CSS
 ======================================================= */
