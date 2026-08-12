@@ -476,14 +476,10 @@ floatPhone();
 /* ==========================================================
    BLUELI SMARTPHONE – NORMAL / ALARM
    ========================================================== */
-
 function setPhoneMode(mode) {
 
-    const neutralView =
-        document.getElementById("neutralView");
-
-    const alarmView =
-        document.getElementById("alarmView");
+    const neutralView = document.getElementById("neutralView");
+    const alarmView = document.getElementById("alarmView");
 
     const normalButton =
         document.getElementById("normalModeButton");
@@ -492,73 +488,38 @@ function setPhoneMode(mode) {
         document.getElementById("alarmModeButton");
 
 
-    if (!neutralView || !alarmView) {
+    if (!neutralView || !alarmView ||
+        !normalButton || !alarmButton) {
+
+        console.error("Smartphone-Vorschau: Elemente fehlen.");
+
         return;
-    }
-
-
-    if (mode === "normal") {
-
-        /* Normal anzeigen */
-
-        neutralView.style.display = "flex";
-
-        alarmView.style.display = "none";
-
-
-        /* Buttons */
-
-        normalButton.classList.add("active");
-
-        alarmButton.classList.remove("active");
-
     }
 
 
     if (mode === "alarm") {
 
-        /* Alarm anzeigen */
-
         neutralView.style.display = "none";
-
         alarmView.style.display = "block";
 
-
-        /* Buttons */
-
         normalButton.classList.remove("active");
-
         alarmButton.classList.add("active");
-
-    }
-
-}
-function setPhoneMode(mode) {
-
-    const phone = document.querySelector('.hero-right');
-
-    const normalButton = document.getElementById('normalModeButton');
-    const alarmButton = document.getElementById('alarmModeButton');
-
-    if (!phone) return;
-
-    if (mode === 'alarm') {
-
-        phone.classList.remove('phone-normal');
-        phone.classList.add('phone-alarm');
-
-        normalButton.classList.remove('active');
-        alarmButton.classList.add('active');
 
     } else {
 
-        phone.classList.remove('phone-alarm');
-        phone.classList.add('phone-normal');
+        alarmView.style.display = "none";
+        neutralView.style.display = "flex";
 
-        alarmButton.classList.remove('active');
-        normalButton.classList.add('active');
+        alarmButton.classList.remove("active");
+        normalButton.classList.add("active");
     }
 }
-document.addEventListener('DOMContentLoaded', function () {
-    setPhoneMode('normal');
+
+
+/* Beim Laden immer Normalmodus */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    setPhoneMode("normal");
+
 });
