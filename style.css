@@ -2535,6 +2535,10 @@ footer {
    LOGO ALS DEZENTER HINTERGRUND
    ---------------------------------------------------------- */
 
+/* ----------------------------------------------------------
+   LOGO ALS DEZENTER HINTERGRUND
+   ---------------------------------------------------------- */
+
 .hero-right .neutral-logo {
     position: absolute !important;
     left: 50% !important;
@@ -2546,14 +2550,15 @@ footer {
     z-index: 0 !important;
     pointer-events: none !important;
 
-    /* REPARATUR-TRICK: Macht das Weiß im Bild transparent */
-    mix-blend-mode: multiply !important; 
+    /* NEUER TRICK: Lässt die hellen Farben auf dem dunklen Grund leuchten */
+    mix-blend-mode: screen !important; 
 
-    /* OPTIONAL: Falls die Glocke danach zu dunkel ist, 
-       kannst du die Deckkraft hier wieder etwas hochdrehen: */
-    opacity: .30 !important; 
+    /* Setzt die Deckkraft auf einen guten Wert, damit es dezent bleibt */
+    opacity: 0.25 !important; 
+
+    /* Schaltet den alten Graustufen-Filter aus, damit die echten Farben durchkommen */
+    filter: none !important; 
 }
-
 
 
 /* Text über Logo */
