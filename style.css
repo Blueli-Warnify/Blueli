@@ -1400,12 +1400,13 @@ body::before {
 }
 
 .stat h2 {
-    font-size: 42px;
+    font-size: 38px; /* Von 42px auf 38px verkleinert */
     color: var(--secondary);
     margin-bottom: 10px;
     
-    /* REPARATUR: Verhindert, dass das /7 in die nächste Zeile rutscht */
-    white-space: nowrap !important; 
+    /* REPARATUR-TRICK: */
+    line-height: 1.1 !important;    /* Verhindert eine große Lücke zwischen 24 und /7 */
+    white-space: normal !important; /* Erlaubt den Umbruch, den wir gleich im HTML einbauen */
 }
 
 .stat p {
@@ -1415,13 +1416,14 @@ body::before {
 /* RESPONSIVE ANPASSUNG: Für kleinere Bildschirme (Tablets & Laptops) */
 @media (max-width: 992px) {
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr); /* Macht 2er-Reihen statt 4er-Reihen */
+        grid-template-columns: repeat(2, 1fr); 
         gap: 15px;
     }
     .stat h2 {
-        font-size: 32px; /* Macht die Schrift etwas kleiner, damit sie perfekt in die Boxen passt */
+        font-size: 32px; 
     }
 }
+
 
 /* RESPONSIVE ANPASSUNG: Für Smartphones */
 @media (max-width: 576px) {
