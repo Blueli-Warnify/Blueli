@@ -5237,19 +5237,18 @@ footer {
     }
 }
 /* ==========================================================
-   ZWEITES SMARTPHONE – ALARMBILDSCHIRM
+   ZWEITES HANDY – ALARMMODUS
    ========================================================== */
 
-.phone-large {
+.phone-preview .phone {
     position: relative;
-    overflow: hidden;
 
-    width: 310px;
-    height: 640px;
+    width: 310px !important;
+    height: 640px !important;
 
-    padding: 9px;
+    padding: 9px !important;
 
-    border-radius: 42px;
+    border-radius: 42px !important;
 
     background:
         linear-gradient(
@@ -5258,154 +5257,197 @@ footer {
             #0b0d10 35%,
             #202328 70%,
             #050607 100%
-        );
+        ) !important;
+
+    border: 0 !important;
 
     box-shadow:
         0 35px 80px rgba(0,0,0,.65),
         0 0 0 2px #45484c,
-        inset 0 0 0 2px #080909;
+        inset 0 0 0 2px #080909 !important;
+
+    overflow: hidden;
 }
 
 
 /* Bildschirm */
 
-.phone-large-content {
+.phone-preview .phone-screen {
     position: relative;
 
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
 
-    overflow: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
 
-    border-radius: 34px;
+    border-radius: 34px !important;
 
-    background: #050505;
+    overflow: hidden !important;
 
-    color: #fff;
+    background: #050505 !important;
+
+    color: #fff !important;
 }
 
 
-/* Statusleiste */
+/* ==========================================================
+   STATUSLEISTE
+   ========================================================== */
 
-.phone-header {
-    position: absolute;
+.phone-preview .status-bar {
+    position: relative;
 
-    top: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
+    height: 29px !important;
 
-    height: 29px;
+    padding: 0 13px !important;
 
-    padding: 0 13px;
+    display: flex !important;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center !important;
+    justify-content: space-between !important;
 
-    background: #19c900;
+    background: #19c900 !important;
 
-    color: #050505;
+    color: #050505 !important;
 
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 11px !important;
+    font-weight: 700 !important;
 
     z-index: 20;
 }
 
 
-/* App-Leiste */
+/* ==========================================================
+   ROTE APP-LEISTE IM ALARMMODUS
+   ========================================================== */
 
-.phone-large-appbar {
-    position: absolute;
+.phone-preview .alarm-appbar {
+    position: relative;
 
-    top: 29px;
-    left: 0;
-    right: 0;
+    width: 100%;
+    height: 61px !important;
 
-    height: 61px;
+    padding: 0 14px !important;
 
-    padding: 0 14px;
+    display: flex !important;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center !important;
+    justify-content: space-between !important;
 
-    background: #19c900;
+    background: #df252b !important;
 
-    color: #050505;
+    color: #ffffff !important;
 
-    z-index: 15;
+    border: 0 !important;
+
+    box-shadow: none !important;
+
+    z-index: 10;
 }
 
 
-.phone-large-appbar strong {
-    font-size: 16px;
+.phone-preview .alarm-appbar .app-title {
+    color: #ffffff !important;
 }
 
 
-.phone-large-appbar span {
-    width: 28px;
-
-    display: flex;
-    justify-content: center;
-
-    font-size: 17px;
+.phone-preview .alarm-appbar .app-action {
+    color: #ffffff !important;
 }
 
 
-/* Alarm-Inhalt */
+/* ==========================================================
+   APP-INHALT
+   ========================================================== */
 
-.phone-large-alarm {
-    position: absolute;
+.phone-preview .app-content {
+    position: absolute !important;
 
-    top: 90px;
-    bottom: 61px;
+    top: 90px !important;
+    bottom: 71px !important;
 
-    left: 0;
-    right: 0;
+    left: 0 !important;
+    right: 0 !important;
 
-    padding: 10px;
+    width: auto !important;
+    height: auto !important;
 
-    overflow: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
 
-    background: #050505;
+    overflow: hidden !important;
+
+    background: #050505 !important;
+
+    color: #ffffff !important;
 }
 
 
-/* Alarm-Benachrichtigung */
+/* ==========================================================
+   ALARM VIEW
+   ========================================================== */
 
-.large-alarm-notification {
+.phone-preview .alarm-view {
+    width: 100%;
+    height: 100%;
+
+    padding: 10px !important;
+
+    margin: 0 !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    scrollbar-width: none !important;
+
+    background: #050505 !important;
+
+    color: #ffffff !important;
+}
+
+
+.phone-preview .alarm-view::-webkit-scrollbar {
+    display: none !important;
+}
+
+
+/* ==========================================================
+   ALARM-BENACHRICHTIGUNG
+   ========================================================== */
+
+.phone-preview .alarm-notification {
+    width: calc(100% + 20px);
+
+    margin: -10px -10px 9px;
+
+    padding: 12px 12px 10px;
+
     display: flex;
 
     align-items: center;
 
     gap: 10px;
 
-    width: calc(100% + 20px);
+    background: #f1f3f5 !important;
 
-    margin: -10px -10px 10px;
+    color: #202124 !important;
 
-    padding: 11px 12px;
-
-    background: #f1f3f5;
-
-    color: #202124;
-
-    border-radius: 0 0 16px 16px;
+    border-radius: 0 0 17px 17px !important;
 
     box-shadow:
-        0 5px 14px rgba(0,0,0,.35);
+        0 5px 14px rgba(0,0,0,.35) !important;
 
-    font-size: 11px;
+    font-size: 11px !important;
+
+    line-height: 1.4 !important;
+
+    text-align: left !important;
 }
 
 
-.large-alarm-notification-icon {
-    font-size: 21px;
-}
-
-
-.large-alarm-notification div:last-child {
+.phone-preview .alarm-notification > div:last-child {
     display: flex;
 
     flex-direction: column;
@@ -5414,195 +5456,261 @@ footer {
 }
 
 
-.large-alarm-notification strong {
-    font-size: 12px;
+.phone-preview .alarm-notification strong {
+    font-size: 12px !important;
 }
 
 
-.large-alarm-notification span {
-    font-size: 10px;
+.phone-preview .alarm-notification span {
+    font-size: 10px !important;
 
-    color: #555;
+    color: #555 !important;
 }
 
 
-/* Alarm Karten */
+/* ==========================================================
+   ALARM CARD
+   ========================================================== */
 
-.large-alarm-card {
+.phone-preview .alarm-card {
     width: 100%;
 
-    padding: 12px;
+    padding: 12px !important;
 
-    margin-bottom: 8px;
+    margin: 0 0 9px !important;
 
-    border-radius: 10px;
+    border-radius: 10px !important;
 
-    background: #ffc8cc;
+    background: #ffc8cc !important;
 
-    color: #171717;
+    border: 0 !important;
+
+    color: #171717 !important;
 
     box-shadow:
-        0 3px 10px rgba(0,0,0,.25);
+        0 3px 10px rgba(0,0,0,.25) !important;
 
-    font-size: 11px;
+    font-size: 13px !important;
+
+    line-height: 1.4 !important;
 }
 
 
-/* Karten Header */
+/* Header */
 
-.large-alarm-card-header {
-    display: flex;
+.phone-preview .alarm-card-header {
+    display: flex !important;
 
-    align-items: flex-start;
+    align-items: flex-start !important;
 
-    justify-content: space-between;
+    justify-content: space-between !important;
 
-    gap: 8px;
+    gap: 8px !important;
+
+    margin-bottom: 7px !important;
 }
 
 
-.large-alarm-title {
-    font-size: 11px;
+.phone-preview .alarm-title {
+    flex: 1;
 
-    line-height: 1.35;
+    font-size: 13px !important;
+
+    font-weight: 600 !important;
+
+    line-height: 1.35 !important;
+
+    color: #171717 !important;
 }
 
 
-.large-distance {
-    display: block;
+.phone-preview .alarm-title strong {
+    font-size: 18px !important;
 
-    margin-top: 2px;
+    font-weight: 800 !important;
 
-    font-size: 19px;
-
-    line-height: 1.1;
-
-    color: #d9252d;
+    color: #d9252d !important;
 }
 
 
-.large-warning {
+/* Warnsymbol */
+
+.phone-preview .warning-icon {
     flex-shrink: 0;
 
-    font-size: 22px;
+    color: #e2222b !important;
 
-    color: #e2222b;
+    font-size: 22px !important;
+
+    line-height: 1 !important;
+
+    font-weight: 700 !important;
 }
 
 
 /* Countdown */
 
-.large-countdown {
-    margin-top: 11px;
+.phone-preview .alarm-countdown {
+    margin-top: 4px !important;
 
-    font-size: 11px;
+    margin-bottom: 11px !important;
 
-    font-weight: 700;
+    font-size: 13px !important;
+
+    font-weight: 600 !important;
+
+    color: #171717 !important;
 }
 
 
 /* Hinweis */
 
-.large-alarm-hint {
-    margin-top: 9px;
+.phone-preview .alarm-hint {
+    font-size: 10px !important;
 
-    font-size: 8.5px;
+    line-height: 1.35 !important;
 
-    line-height: 1.4;
+    color: #343434 !important;
 
-    color: #333;
-}
-
-
-/* Feuerwehr */
-
-.large-vehicle-label {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 3px 4px 5px;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    color: #ff3030;
-}
-
-
-.large-vehicle-label span:last-child {
-    color: #39cf6a;
-
-    font-size: 9px;
-
-    font-weight: 600;
-}
-
-
-/* Untere Navigation */
-
-.large-bottom-navigation {
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 61px;
-
-    display: flex;
-
-    background: #151515;
-
-    border-top: 1px solid rgba(255,255,255,.05);
-
-    z-index: 20;
-}
-
-
-.large-nav-item {
-    flex: 1;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 4px;
-
-    color: #aaa;
-
-    font-size: 9px;
-}
-
-
-.large-nav-item div {
-    font-size: 19px;
-}
-
-
-.large-nav-item.active {
-    color: #22d400;
+    margin-top: 8px !important;
 }
 
 
 /* ==========================================================
-   RESPONSIVE
+   FEUERWEHR
    ========================================================== */
 
-@media (max-width: 650px) {
+.phone-preview .vehicle-label {
+    display: flex !important;
 
-    .phone-large {
-        width: 292px;
-        height: 604px;
-    }
+    align-items: center !important;
 
+    justify-content: space-between !important;
+
+    gap: 5px !important;
+
+    margin: 7px 3px 5px !important;
+
+    padding: 0 !important;
+
+    color: #ff3030 !important;
+
+    font-size: 13px !important;
+
+    font-weight: 700 !important;
+
+    background: transparent !important;
+}
+
+
+.phone-preview .vehicle-moving {
+    color: #39cf6a !important;
+
+    font-size: 11px !important;
+
+    font-weight: 600 !important;
+}
+
+
+/* ==========================================================
+   NAVIGATION
+   ========================================================== */
+
+.phone-preview .bottom-navigation {
+    position: absolute !important;
+
+    bottom: 0 !important;
+
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+
+    height: 71px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex !important;
+
+    align-items: stretch !important;
+
+    justify-content: space-around !important;
+
+    background: #151515 !important;
+
+    border-top: 1px solid rgba(255,255,255,.05) !important;
+
+    box-shadow:
+        0 -8px 20px rgba(0,0,0,.3) !important;
+
+    z-index: 30;
+}
+
+
+.phone-preview .bottom-navigation .nav-item {
+    flex: 1;
+
+    height: 71px;
+
+    padding: 0;
+
+    margin: 0;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    gap: 5px !important;
+
+    background: transparent !important;
+
+    border: 0 !important;
+
+    color: #bcbcbc !important;
+
+    font-size: 9px !important;
+
+    text-align: center !important;
+}
+
+
+.phone-preview .bottom-navigation .nav-item.active {
+    color: #22d400 !important;
+}
+
+
+.phone-preview .bottom-navigation .nav-icon {
+    font-size: 20px !important;
+
+    line-height: 1 !important;
+}
+
+
+/* Home Indicator */
+
+.phone-preview .home-indicator {
+    position: absolute !important;
+
+    bottom: 4px !important;
+
+    left: 50% !important;
+
+    transform: translateX(-50%) !important;
+
+    width: 75px !important;
+
+    height: 4px !important;
+
+    border-radius: 5px !important;
+
+    background: #333333 !important;
+
+    z-index: 50 !important;
 }
 /* =======================================================
    ENDE STYLE.CSS
