@@ -1400,13 +1400,20 @@ body::before {
 }
 
 .stat h2 {
-    font-size: 38px; /* Von 42px auf 38px verkleinert */
+    /* Radikal verkleinert, damit 24/7 garantiert auf jedem Bildschirm in EINE Zeile passt */
+    font-size: 26px !important; 
+    
     color: var(--secondary);
     margin-bottom: 10px;
     
-    /* REPARATUR-TRICK: */
-    line-height: 1.1 !important;    /* Verhindert eine große Lücke zwischen 24 und /7 */
-    white-space: normal !important; /* Erlaubt den Umbruch, den wir gleich im HTML einbauen */
+    /* ERZWINGT PLATZ: Löscht eventuelle Höhenbegrenzungen */
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    
+    /* Hält es in einer Zeile, da es jetzt klein genug ist */
+    white-space: nowrap !important; 
+    line-height: 1.2 !important;
 }
 
 .stat p {
