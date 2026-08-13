@@ -720,147 +720,160 @@
 
    <div class="phone-preview">
 
-    <div class="phone-large">
+    <div class="phone">
 
-        <div class="phone-header">
+        <div class="phone-screen">
 
-            <span>20:08</span>
+            <!-- STATUSLEISTE -->
 
-            <span>● ⌁ ▮▮</span>
+            <div class="status-bar">
 
-        </div>
+                <span>20:08</span>
 
-
-        <div class="phone-large-content">
-
-            <!-- APP-LEISTE -->
-
-            <div class="phone-large-appbar">
-
-                <span>🔊</span>
-
-                <strong>Blueli-Warnify</strong>
-
-                <span>⋮</span>
+                <div class="status-icons">
+                    <span>●</span>
+                    <span>⌁</span>
+                    <span>▮▮</span>
+                </div>
 
             </div>
 
 
-            <!-- ALARM-BILDSCHIRM -->
+            <!-- APP-LEISTE -->
 
-            <div class="phone-large-alarm">
+            <div class="appbar">
 
-
-                <!-- Benachrichtigung -->
-
-                <div class="large-alarm-notification">
-
-                    <div class="large-alarm-notification-icon">
-                        🚨
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Alarm ausgelöst!
-                        </strong>
-
-                        <span>
-                            Jetzt
-                        </span>
-
-                    </div>
-
+                <div class="app-action">
+                    🔊
                 </div>
 
+                <div class="app-title">
+                    Blueli-Warnify
+                </div>
 
-                <!-- Rettungswagen -->
+                <div class="app-action">
+                    ⋮
+                </div>
 
-                <div class="large-alarm-card">
+            </div>
 
-                    <div class="large-alarm-card-header">
+
+            <!-- APP-INHALT -->
+
+            <div class="app-content">
+
+                <!-- ALARMMODUS -->
+
+                <div class="alarm-view">
+
+                    <!-- Alarm-Benachrichtigung -->
+
+                    <div class="alarm-notification">
+
+                        <div>
+                            🚨
+                        </div>
 
                         <div>
 
-                            <div class="large-alarm-title">
+                            <strong>
+                                Alarm ausgelöst!
+                            </strong>
+
+                            <span>
+                                Jetzt
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Rettungswagen -->
+
+                    <div class="alarm-card">
+
+                        <div class="alarm-card-header">
+
+                            <div class="alarm-title">
 
                                 Abstand zu
                                 🚑 Rettungswagen:
 
+                                <br>
+
+                                <strong>
+                                    465 Meter
+                                </strong>
+
                             </div>
 
-                            <strong class="large-distance">
-                                465 Meter
-                            </strong>
+                            <div class="warning-icon">
+                                ⚠
+                            </div>
 
                         </div>
 
-                        <div class="large-warning">
-                            ⚠
+
+                        <div class="alarm-countdown">
+                            Alarm endet in 9 s
+                        </div>
+
+
+                        <div class="alarm-hint">
+
+                            ⚠️ Bitte machen Sie
+                            Einsatzfahrzeugen zügig Platz.
+                            Beachten Sie dabei stets die StVO.
+
                         </div>
 
                     </div>
 
 
-                    <div class="large-countdown">
-                        Alarm endet in 9 s
+                    <!-- Feuerwehr -->
+
+                    <div class="vehicle-label">
+
+                        <span>
+                            🚒 Feuerwehr
+                        </span>
+
+                        <span class="vehicle-moving">
+                            ↔ entfernt sich
+                        </span>
+
                     </div>
 
 
-                    <div class="large-alarm-hint">
+                    <div class="alarm-card">
 
-                        ⚠️ Bitte machen Sie
-                        Einsatzfahrzeugen zügig Platz.
-                        Beachten Sie dabei stets die StVO.
+                        <div class="alarm-card-header">
 
-                    </div>
-
-                </div>
-
-
-                <!-- Feuerwehr -->
-
-                <div class="large-vehicle-label">
-
-                    <span>
-                        🚒 Feuerwehr
-                    </span>
-
-                    <span>
-                        ↔ entfernt sich
-                    </span>
-
-                </div>
-
-
-                <div class="large-alarm-card">
-
-                    <div class="large-alarm-card-header">
-
-                        <div>
-
-                            <div class="large-alarm-title">
+                            <div class="alarm-title">
 
                                 Abstand zu
                                 🚒 Feuerwehr:
 
+                                <br>
+
+                                <strong>
+                                    475 Meter
+                                </strong>
+
                             </div>
 
-                            <strong class="large-distance">
-                                475 Meter
-                            </strong>
+                            <div class="warning-icon">
+                                ⚠
+                            </div>
 
                         </div>
 
-                        <div class="large-warning">
-                            ⚠
+
+                        <div class="alarm-countdown">
+                            Alarm endet in 17 s
                         </div>
 
-                    </div>
-
-
-                    <div class="large-countdown">
-                        Alarm endet in 17 s
                     </div>
 
                 </div>
@@ -868,35 +881,52 @@
             </div>
 
 
-            <!-- NAVIGATION -->
+            <!-- UNTERE NAVIGATION -->
 
-            <div class="large-bottom-navigation">
+            <div class="bottom-navigation">
 
-                <div class="large-nav-item active">
+                <div class="nav-item active">
 
-                    <div>⚠</div>
+                    <div class="nav-icon">
+                        ⚠
+                    </div>
 
-                    <span>Alarm</span>
-
-                </div>
-
-                <div class="large-nav-item">
-
-                    <div>◴</div>
-
-                    <span>Verlauf</span>
+                    <span>
+                        Alarm
+                    </span>
 
                 </div>
 
-                <div class="large-nav-item">
 
-                    <div>⚙</div>
+                <div class="nav-item">
 
-                    <span>Einstellungen</span>
+                    <div class="nav-icon">
+                        ◴
+                    </div>
+
+                    <span>
+                        Verlauf
+                    </span>
+
+                </div>
+
+
+                <div class="nav-item">
+
+                    <div class="nav-icon">
+                        ⚙
+                    </div>
+
+                    <span>
+                        Einstellungen
+                    </span>
 
                 </div>
 
             </div>
+
+
+            <div class="home-indicator"></div>
 
         </div>
 
