@@ -2987,7 +2987,7 @@ footer {
     align-items: center !important;
     justify-content: space-between !important;
 
-    background: #050505 !important;
+    background: #df252b !important;
     color: #ffffff !important;
 
     font-size: 9px !important;
@@ -3256,7 +3256,7 @@ footer {
 @media (max-width: 650px) {
     .phone-preview .phone {
         width: 275px !important;
-        height: 560px !important;
+        height: 860px !important;
     }
 }
 
