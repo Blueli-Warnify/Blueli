@@ -2531,27 +2531,29 @@ footer {
    LOGO ALS DEZENTER HINTERGRUND
    ---------------------------------------------------------- */
 
+/* ----------------------------------------------------------
+   LOGO ALS DEZENTER HINTERGRUND
+   ---------------------------------------------------------- */
+
 .hero-right .neutral-logo {
     position: absolute !important;
-
     left: 50% !important;
     top: 50% !important;
-
     transform: translate(-50%, -58%) !important;
-
     width: 175px !important;
     height: 175px !important;
-
     object-fit: contain !important;
-
-    opacity: .12 !important;
-
     z-index: 0 !important;
-
     pointer-events: none !important;
 
-    filter: grayscale(100%) brightness(1.5) !important;
+    /* REPARATUR-TRICK: Macht das Weiß im Bild transparent */
+    mix-blend-mode: multiply !important; 
+
+    /* OPTIONAL: Falls die Glocke danach zu dunkel ist, 
+       kannst du die Deckkraft hier wieder etwas hochdrehen: */
+    opacity: .30 !important; 
 }
+
 
 
 /* Text über Logo */
