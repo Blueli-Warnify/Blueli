@@ -2564,7 +2564,7 @@ footer {
     /* REPARATUR-TRICK: Schneidet das Bild kreisrund aus. 
        Ändere die 36% minimal (z.B. auf 35% oder 38%), 
        bis der weiße Rand genau weggeschnitten ist! */
-    clip-path: circle(36% at 50% 50%) !important;
+    clip-path: circle(45% at 50% 50%) !important;
 }
 
 
