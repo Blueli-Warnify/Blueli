@@ -3162,13 +3162,15 @@ footer {
 }
 
 /* Fahrzeug */
+/* Fahrzeug - GEÄNDERT auf Spalten-Layout */
 .phone-preview .vehicle-label {
     display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 4px !important;
+    flex-direction: column !important; /* Stapelt die Elemente untereinander */
+    align-items: flex-start !important; /* Richtet alles linksbündig aus */
+    justify-content: flex-start !important;
+    gap: 2px !important; /* Kleiner Abstand zwischen Typ und Status */
 
-    margin: 5px 2px 4px !important;
+    margin: 8px 2px 4px !important; /* Leicht nach oben angepasst */
     padding: 0 !important;
 
     color: #ff3030 !important;
@@ -3177,11 +3179,14 @@ footer {
     background: transparent !important;
 }
 
+/* Status-Text (entfernt sich / bleibt gleich) */
 .phone-preview .vehicle-moving {
     color: #39cf6a !important;
     font-size: 8px !important;
     font-weight: 600 !important;
+    margin-left: 0 !important; /* Verhindert ungewollte Einrückungen */
 }
+
 
 /* Untere Navigation */
 .phone-preview .bottom-navigation {
