@@ -1401,7 +1401,7 @@ body::before {
 
 .stat h2 {
     /* Radikal verkleinert, damit 24/7 garantiert auf jedem Bildschirm in EINE Zeile passt */
-    font-size: 38px !important; 
+    font-size: 40px !important; 
     
     color: var(--secondary);
     margin-bottom: 10px;
