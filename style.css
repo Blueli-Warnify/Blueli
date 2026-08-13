@@ -3027,11 +3027,11 @@ footer {
     font-size: 12px !important;
 }
 
-/* App-Inhalt */
+/* App-Inhalt - GEÄNDERT: bottom auf 45px gesetzt */
 .phone-preview .app-content {
     position: absolute !important;
     top: 76px !important;
-    bottom: 58px !important;
+    bottom: 45px !important; /* RECHNET JETZT MIT DER NEUEN NAVI-HÖHE */
     left: 0 !important;
     right: 0 !important;
 
@@ -3207,11 +3207,12 @@ footer {
     z-index: 30;
 }
 
+/* GEÄNDERT: padding-bottom hinzugefügt, damit die Icons minimal höher sitzen als der Home-Balken */
 .phone-preview .bottom-navigation .nav-item {
     flex: 1;
     height: 45px;
 
-    padding: 0;
+    padding: 0 0 6px 0 !important; /* Drückt den Inhalt leicht nach oben */
     margin: 0;
 
     display: flex !important;
@@ -3219,7 +3220,7 @@ footer {
     align-items: center !important;
     justify-content: center !important;
 
-    gap: 3px !important;
+    gap: 2px !important;
 
     background: transparent !important;
     border: 0 !important;
