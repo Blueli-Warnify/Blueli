@@ -288,132 +288,101 @@ document.addEventListener("DOMContentLoaded", () => {
        KONTAKTFORMULAR
     ====================================================== */
 
-    const form =
-        document.getElementById("contactForm");
+    const form = document.getElementById("contactForm");
 
     if (form) {
 
-        form.addEventListener(
-            "submit",
-            async function (e) {
+        form.addEventListener("submit", async function (e) {
 
-                e.preventDefault();
+            e.preventDefault();
 
-                const result =
-                    document.getElementById("result");
+            const result = document.getElementById("result");
+            const button = form.querySelector("button");
+            const buttonText = document.getElementById("buttonText");
+            const loading = document.getElementById("loading");
 
-                const button =
-                    form.querySelector("button");
+            if (button) {
+                button.disabled = true;
+            }
 
-                const buttonText =
-                    document.getElementById("buttonText");
+            if (buttonText) {
+                buttonText.style.display = "none";
+            }
 
-                const loading =
-                    document.getElementById("loading");
+            if (loading) {
+                loading.style.display = "inline";
+            }
 
-                if (button) {
-                    button.disabled = true;
+            try {
+
+                const data = new FormData(form);
+
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: data
+                });
+
+                const json = await response.json();
+
+                if (loading) {
+                    loading.style.display = "none";
                 }
 
                 if (buttonText) {
-                    buttonText.style.display = "none";
+                    buttonText.style.display = "inline";
                 }
 
-                if (loading) {
-                    loading.style.display = "inline";
+                if (button) {
+                    button.disabled = false;
                 }
 
-                try {
-
-                    const data =
-                        new FormData(form);
-
-                    const response =
-                        await fetch(
-                            "https://api.web3forms.com/submit",
-                            {
-                                method: "POST",
-                                body: data
-                            }
-                        );
-
-                    const json =
-                        await response.json();
-
-                    if (loading) {
-                        loading.style.display = "none";
-                    }
-
-                    if (buttonText) {
-                        buttonText.style.display = "inline";
-                    }
-
-                    if (button) {
-                        button.disabled = false;
-                    }
-
-                    if (json.success) {
-
-                        if (result) {
-
-                            result.className = "success";
-
-                            result.innerHTML =
-                                "✅ Vielen Dank! Ihre Nachricht wurde erfolgreich versendet.";
-
-                        }
-
-                        form.reset();
-
-                    } else {
-
-                        if (result) {
-
-                            result.className = "error";
-
-                            result.innerHTML =
-                                "❌ Nachricht konnte nicht versendet werden. Bitte versuchen Sie es später erneut.";
-
-                        }
-
-                    }
-
-                } catch (error) {
-
-                    if (loading) {
-                        loading.style.display = "none";
-                    }
-
-                    if (buttonText) {
-                        buttonText.style.display = "inline";
-                    }
-
-                    if (button) {
-                        button.disabled = false;
-                    }
+                if (json.success) {
 
                     if (result) {
-
-                        result.className = "error";
-
-                        result.innerHTML =
-                            "❌ Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.";
-
+                        result.className = "success";
+                        result.innerHTML = "✅ Vielen Dank! Ihre Nachricht wurde erfolgreich versendet.";
                     }
 
-                    console.error(
-                        "Kontaktformular Fehler:",
-                        error
-                    );
+                    form.reset();
+
+                } else {
+
+                    if (result) {
+                        result.className = "error";
+                        result.innerHTML = "❌ Nachricht konnte nicht versendet werden. Bitte versuchen Sie es später erneut.";
+                    }
 
                 }
 
+            } catch (error) {
+
+                if (loading) {
+                    loading.style.display = "none";
+                }
+
+                if (buttonText) {
+                    buttonText.style.display = "inline";
+                }
+
+                if (button) {
+                    button.disabled = false;
+                }
+
+                if (result) {
+                    result.className = "error";
+                    result.innerHTML = "❌ Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.";
+                }
+
+                console.error("Kontaktformular Fehler:", error);
+
             }
-        );
+
+        });
 
     }
 
 });
+
 
 
 /* ==========================================================
