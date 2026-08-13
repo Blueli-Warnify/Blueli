@@ -2554,17 +2554,12 @@ footer {
     z-index: 0 !important;
     pointer-events: none !important;
 
-    /* SETZT DIE DECKKRAFT: Damit es dezent im Hintergrund liegt */
-    opacity: 0.15 !important; 
+    /* Macht helle Töne transparent auf schwarzem Grund */
+    mix-blend-mode: lighten !important;
+    opacity: 0.20 !important;
 
-    /* FILTER ZURÜCKSETZEN: Damit die echten Logo-Farben bleiben */
-    filter: none !important;
-    mix-blend-mode: normal !important;
-
-    /* REPARATUR-TRICK: Schneidet das Bild kreisrund aus. 
-       Ändere die 36% minimal (z.B. auf 35% oder 38%), 
-       bis der weiße Rand genau weggeschnitten ist! */
-    clip-path: circle(45% at 50% 50%) !important;
+    /* Invertiert das Bild farblich, um das Weiß ins Schwarze zu ziehen */
+    filter: invert(1) hue-rotate(180deg) !important;
 }
 
 
